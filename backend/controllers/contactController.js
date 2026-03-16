@@ -1,0 +1,42 @@
+import Message from '../models/Message.js';
+import nodemailer from 'nodemailer';
+
+// @desc    Submit a contact form message
+// @route   POST /api/contact
+// @access  Public
+export const submitMessage = async (req, res, next) => {
+  try {
+    const { name, email, message } = req.body;
+
+    const newMessage = new Message({ name, email, message });
+    await newMessage.save();
+
+    // Send email using Nodemailer
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    const mailOptions = {
+      from: email,
+      to: process.env.EMAIL_USER,
+      subject: `New Portfolio Message from ${name}`,
+      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error('Error sending email:', error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+
+    res.status(201).json({ success: true, message: 'Message sent successfully' });
+  } catch (error) {
+    next(error);
+  }
+};
