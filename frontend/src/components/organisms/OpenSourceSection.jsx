@@ -32,12 +32,12 @@ const OpenSourceSection = () => {
       const timeoutId = setTimeout(() => controller.abort(), 6000); // 6s timeout
 
       try {
-        const response = await fetch('https://leetcode-stats-api.herokuapp.com/saarthak_kaundal', {
+        const response = await fetch('https://leetcode-api-faisalshohag.vercel.app/saarthak_kaundal', {
           signal: controller.signal
         });
         clearTimeout(timeoutId);
         const data = await response.json();
-        if (data.status === 'success') {
+        if (data.totalSolved !== undefined) {
           setLeetCodeStats(data);
         } else {
           setLeetCodeStats({ error: true });
