@@ -3,8 +3,10 @@ import { motion } from 'framer-motion';
 import { GitHubCalendar } from 'react-github-calendar';
 import api from '../../services/api';
 import { Star, GitFork, Code2 } from 'lucide-react';
+import { useTheme } from '../../context/ThemeContext';
 
 const OpenSourceSection = () => {
+  const { theme } = useTheme();
   const [repos, setRepos] = useState([]);
   const [leetCodeStats, setLeetCodeStats] = useState(null);
 
@@ -75,8 +77,9 @@ const OpenSourceSection = () => {
             <div className="min-w-[800px] pb-4">
               <GitHubCalendar 
                 username="sarthakkaundal" 
-                colorScheme="dark"
+                colorScheme={theme === 'dark' ? 'dark' : 'light'}
                 theme={{
+                  light: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'],
                   dark: ['#12121c', '#00f3ff40', '#00f3ff80', '#00f3ffc0', '#00f3ff']
                 }}
               />

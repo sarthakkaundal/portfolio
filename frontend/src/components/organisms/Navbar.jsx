@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Sun, Moon } from 'lucide-react';
+import { useTheme } from '../../context/ThemeContext';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,6 +54,14 @@ const Navbar = () => {
           >
             Resume
           </a>
+
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full hover:bg-gray-500/10 text-foreground transition-colors flex items-center justify-center"
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
         </div>
       </div>
     </motion.nav>
