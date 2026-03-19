@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from '../atoms/Button';
+import MagneticWrapper from '../atoms/MagneticWrapper';
 
 const ROLES = ["MERN Developer", "Problem Solver", "AI Enthusiast", "Software Engineer"];
 
@@ -81,12 +82,16 @@ const HeroSection = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex gap-4 pt-4"
           >
-            <Button variant="primary" onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}>
-              View Projects
-            </Button>
-            <Button variant="secondary" onClick={() => window.open('/Resume.pdf', '_blank')}>
-              Download Resume
-            </Button>
+            <MagneticWrapper>
+              <Button variant="primary" onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}>
+                View Projects
+              </Button>
+            </MagneticWrapper>
+            <MagneticWrapper>
+              <Button variant="secondary" onClick={() => window.open('/Resume.pdf', '_blank')}>
+                Download Resume
+              </Button>
+            </MagneticWrapper>
           </motion.div>
         </div>
 
