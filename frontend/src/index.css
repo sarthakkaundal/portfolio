@@ -46,6 +46,12 @@
   }
 }
 
+@media (min-width: 768px) {
+  * {
+    cursor: none !important;
+  }
+}
+
 @layer utilities {
   .glass {
     background-color: rgb(var(--color-glassBg) / 0.85);
