@@ -21,19 +21,14 @@ export const submitMessage = async (req, res, next) => {
     });
 
     const mailOptions = {
-      from: email,
+      from: `"${name} (Portfolio)" <${process.env.EMAIL_USER}>`,
+      replyTo: email,
       to: process.env.EMAIL_USER,
       subject: `New Portfolio Message from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
     };
 
-    transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-        console.error('Error sending email:', error);
-      } else {
-        console.log('Email sent: ' + info.response);
-      }
-    });
+    await transporter.sendMail(mailOptions);
 
     res.status(201).json({ success: true, message: 'Message sent successfully' });
   } catch (error) {

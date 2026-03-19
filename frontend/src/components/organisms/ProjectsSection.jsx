@@ -42,7 +42,7 @@ const ProjectsSection = () => {
           'Impact: Achieved ~94% prediction accuracy and demonstrates AI integration with geospatial data'
         ],
         githubLink: 'https://github.com/sarthakkaundal/PRAYAS',
-        imagePlaceholder: 'https://images.unsplash.com/photo-1508182311256-e3f1c9a1a8aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        imagePlaceholder: 'projects/prayas.png',
       }
     ];
 
