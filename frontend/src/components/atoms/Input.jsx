@@ -1,11 +1,11 @@
 import React from 'react';
 
 const Input = ({ label, type = 'text', name, value, onChange, placeholder, isTextArea = false, className = '', ...props }) => {
-  const baseClasses = 'w-full bg-darkGray/60 border border-white/10 rounded-lg p-3 text-white placeholder-gray-500 focus:outline-none focus:border-neonBlue focus:shadow-[0_0_10px_rgba(0,243,255,0.3)] transition-all duration-300';
+  const baseClasses = 'w-full bg-foreground/[0.02] border border-foreground/10 rounded-xl p-4 text-foreground placeholder-lightGray focus:outline-none focus:border-neonBlue/50 focus:bg-foreground/[0.05] focus:ring-4 focus:ring-neonBlue/10 transition-all duration-300';
 
   return (
     <div className={`flex flex-col gap-2 ${className}`}>
-      {label && <label className="text-sm font-medium text-gray-300">{label}</label>}
+      {label && <label className="text-sm font-semibold text-foreground/80 pl-1">{label}</label>}
       {isTextArea ? (
         <textarea
           name={name}

@@ -34,8 +34,8 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="glass p-8 rounded-2xl flex flex-col gap-6 w-full max-w-xl mx-auto">
-      <h3 className="text-2xl font-bold text-white mb-2">Send a Message</h3>
+    <form onSubmit={handleSubmit} className="p-8 lg:p-12 flex flex-col gap-6 w-full max-w-xl mx-auto">
+      <h3 className="text-3xl font-extrabold text-foreground mb-2">Send a Message</h3>
       
       {status.message && (
         <div className={`p-4 rounded-lg text-sm ${status.type === 'success' ? 'bg-green-500/20 text-green-300 border border-green-500/30' : 'bg-red-500/20 text-red-300 border border-red-500/30'}`}>
