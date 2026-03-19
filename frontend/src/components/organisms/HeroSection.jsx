@@ -1,8 +1,18 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Button from '../atoms/Button';
 
+const ROLES = ["MERN Developer", "Problem Solver", "AI Enthusiast", "Software Engineer"];
+
 const HeroSection = () => {
+  const [roleIndex, setRoleIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRoleIndex((prev) => (prev + 1) % ROLES.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
   return (
     <section className="min-h-screen flex flex-col justify-center relative pt-20 px-6 max-w-7xl mx-auto">
       <div className="absolute top-1/3 right-10 w-72 h-72 bg-electricPurple/20 rounded-full blur-[100px] -z-10" />
@@ -14,37 +24,55 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
+            className="flex items-center gap-3"
           >
-            <span className="text-electricPurple font-mono font-medium tracking-wider">Hi, my name is</span>
+            <div className="h-[1px] w-8 bg-neonBlue"></div>
+            <span className="text-neonBlue font-mono font-semibold tracking-widest uppercase text-sm">
+              Hello, World! I am
+            </span>
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-bold text-white tracking-tight"
+            className="text-6xl md:text-[5.5rem] font-extrabold text-foreground tracking-tighter leading-tight"
           >
             Sarthak Kaundal.
           </motion.h1>
 
-          <motion.h2
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-3xl md:text-5xl font-bold text-gray-400"
+            className="text-3xl md:text-5xl font-bold flex flex-wrap gap-3 text-lightGray mb-8"
           >
-            MERN Developer | Problem Solver
-          </motion.h2>
+            <span>I'm {/^[AEIOU]/i.test(ROLES[roleIndex]) ? 'an' : 'a'}</span>
+            <div className="relative flex-1 min-w-[300px]">
+              <AnimatePresence mode="popLayout">
+                <motion.span
+                  key={roleIndex}
+                  initial={{ y: 40, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -40, opacity: 0 }}
+                  transition={{ duration: 0.5, type: 'spring', stiffness: 100 }}
+                  className="absolute top-0 left-0 text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-gray-200 whitespace-nowrap"
+                >
+                  {ROLES[roleIndex]}
+                </motion.span>
+              </AnimatePresence>
+            </div>
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-lg text-gray-400 max-w-xl"
+            className="text-lg md:text-xl text-lightGray max-w-xl leading-relaxed font-light mt-4"
           >
-            “Turning complex problems into scalable web solutions.”
-            <br className="mb-4" />
-            I’m a software engineer specializing in building (and occasionally designing) exceptional digital experiences with a focus on scalable systems.
+            Turning complex problems into <strong className="text-foreground font-semibold">scalable web solutions.</strong>
+            <br className="mb-2" />
+            I’m a software engineer specializing in building exceptional digital experiences with a focus on robust architectures and intuitive design.
           </motion.p>
 
           <motion.div
