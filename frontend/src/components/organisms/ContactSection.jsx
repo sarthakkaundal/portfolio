@@ -19,45 +19,57 @@ const ContactSection = () => {
           transition={{ duration: 0.6 }}
           className="lg:w-1/2 lg:sticky lg:top-32"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-electricPurple/10 border border-electricPurple/20 text-electricPurple text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neonBlue/10 border border-neonBlue/20 text-neonBlue text-xs font-mono mb-6 shadow-[0_0_10px_rgba(0,240,255,0.1)]">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-electricPurple opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-electricPurple"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-neonBlue opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-neonBlue"></span>
             </span>
-            My inbox is always open
+            Ready for Software Roles
           </div>
           
-          <h2 className="text-4xl md:text-6xl font-extrabold text-foreground mb-6 leading-tight">
-            Let's build something <span className="text-gradient">extraordinary.</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-6 leading-tight tracking-tight">
+            Let's build your next <span className="text-gradient">full-stack solution.</span>
           </h2>
-          <p className="text-lightGray text-lg mb-12 max-w-md leading-relaxed">
-            Whether you have a question, an idea for a project, or just want to chat about tech, I'm always open to talking.
+          <p className="text-gray-400 text-base md:text-lg mb-10 max-w-md leading-relaxed">
+            Open to software engineering roles, internships, and dynamic collaborations. Whether you have a project idea or an opportunity, let's discuss how my skills align with your goals.
           </p>
 
-          <div className="space-y-6">
-            <a href="mailto:sarthakkaundal@gmail.com" className="flex items-center gap-4 text-lightGray hover:text-neonBlue transition-colors group">
-              <div className="w-12 h-12 rounded-full bg-background border border-glassBorder flex items-center justify-center group-hover:border-neonBlue transition-colors">
-                <Mail size={20} />
+          <div className="space-y-4">
+            <a href="mailto:skkaundal9314@gmail.com" className="flex items-center gap-4 text-gray-400 hover:text-white transition-all group p-3 rounded-xl hover:bg-white/[0.02] border border-transparent hover:border-white/5">
+              <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-neonBlue group-hover:text-neonBlue shadow-sm transition-all">
+                <Mail size={18} />
               </div>
-              <span className="font-medium">sarthakkaundal@gmail.com</span>
+              <div>
+                <span className="text-xs uppercase tracking-widest text-gray-600 block mb-0.5 font-mono">Email</span>
+                <span className="font-medium text-sm">skkaundal9314@gmail.com</span>
+              </div>
             </a>
-            <a href="https://github.com/sarthakkaundal" target="_blank" rel="noreferrer" className="flex items-center gap-4 text-lightGray hover:text-neonBlue transition-colors group">
-              <div className="w-12 h-12 rounded-full bg-background border border-glassBorder flex items-center justify-center group-hover:border-neonBlue transition-colors">
-                <Github size={20} />
+            <a href="https://github.com/sarthakkaundal" target="_blank" rel="noreferrer" className="flex items-center gap-4 text-gray-400 hover:text-white transition-all group p-3 rounded-xl hover:bg-white/[0.02] border border-transparent hover:border-white/5">
+              <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-neonBlue group-hover:text-neonBlue shadow-sm transition-all">
+                <Github size={18} />
               </div>
-              <span className="font-medium">github.com/sarthakkaundal</span>
+              <div>
+                <span className="text-xs uppercase tracking-widest text-gray-600 block mb-0.5 font-mono">GitHub</span>
+                <span className="font-medium text-sm">github.com/sarthakkaundal</span>
+              </div>
             </a>
-            <a href="#" target="_blank" rel="noreferrer" className="flex items-center gap-4 text-lightGray hover:text-neonBlue transition-colors group">
-              <div className="w-12 h-12 rounded-full bg-background border border-glassBorder flex items-center justify-center group-hover:border-neonBlue transition-colors">
-                <Linkedin size={20} />
+            <a href="https://linkedin.com/in/sarthak-kaundal" target="_blank" rel="noreferrer" className="flex items-center gap-4 text-gray-400 hover:text-white transition-all group p-3 rounded-xl hover:bg-white/[0.02] border border-transparent hover:border-white/5">
+              <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-electricPurple group-hover:text-electricPurple shadow-sm transition-all">
+                <Linkedin size={18} />
               </div>
-              <span className="font-medium">LinkedIn Profile</span>
+              <div>
+                <span className="text-xs uppercase tracking-widest text-gray-600 block mb-0.5 font-mono">LinkedIn</span>
+                <span className="font-medium text-sm">linkedin.com/in/sarthak-kaundal</span>
+              </div>
             </a>
-            <div className="flex items-center gap-4 text-lightGray opacity-80 cursor-default">
-              <div className="w-12 h-12 rounded-full bg-background border border-glassBorder flex items-center justify-center">
-                <MapPin size={20} />
+            <div className="flex items-center gap-4 text-gray-400 p-3 rounded-xl border border-transparent cursor-default">
+              <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
+                <MapPin size={18} />
               </div>
-              <span className="font-medium">Based in India</span>
+              <div>
+                <span className="text-xs uppercase tracking-widest text-gray-600 block mb-0.5 font-mono">Location</span>
+                <span className="font-medium text-sm">Based in India</span>
+              </div>
             </div>
           </div>
         </motion.div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import api from '../../services/api';
-import { X } from 'lucide-react';
+import { X, ExternalLink } from 'lucide-react';
 
 const CertificatesSection = () => {
   const [certificates, setCertificates] = useState([]);
@@ -36,26 +36,33 @@ const CertificatesSection = () => {
         </div>
 
         {certificates.length === 0 ? (
-          <div className="glass p-12 rounded-2xl border border-white/5 text-center flex flex-col items-center justify-center">
-             <div className="w-16 h-16 rounded-full bg-darkGray border-2 border-neonBlue flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(0,243,255,0.5)]">
-               <span className="text-electricPurple font-bold text-2xl">?</span>
+          <div className="glass p-12 rounded-3xl border border-white/5 text-center flex flex-col items-center justify-center relative overflow-hidden group">
+             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neonBlue to-electricPurple scale-x-50 group-hover:scale-x-100 transition-transform duration-700"></div>
+             <div className="w-16 h-16 rounded-full bg-darkGray border border-neonBlue flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(0,243,255,0.2)]">
+               <span className="text-neonBlue font-mono text-xl">{'</>'}</span>
              </div>
              <h3 className="text-xl font-bold text-white mb-2">Continuous Learner</h3>
-             <p className="text-gray-400 max-w-md">More certificates and achievements are being updated and will be showcased here soon.</p>
+             <p className="text-gray-400 max-w-md text-sm leading-relaxed">Active certifications are currently being updated. Check back soon for my latest credentials and technical achievements.</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {certificates.map((cert) => (
               <motion.div
                 key={cert._id}
-                whileHover={{ scale: 1.05 }}
-                className="glass-card cursor-pointer group relative overflow-hidden h-64 border border-white/5"
+                whileHover={{ y: -5 }}
+                className="glass-card cursor-pointer group relative overflow-hidden h-64 border border-white/5 hover:border-white/10 hover:shadow-[0_0_30px_rgba(0,240,255,0.1)] transition-all rounded-2xl"
                 onClick={() => setSelectedCert(cert)}
               >
-                <img src={cert.imageUrl} alt={cert.title} className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" />
-                <div className="absolute inset-0 bg-gradient-to-t from-darkGray to-transparent p-6 flex flex-col justify-end">
-                  <h4 className="text-lg font-bold text-white">{cert.title}</h4>
-                  <p className="text-neonBlue text-sm">{cert.issuer}</p>
+                <img src={cert.imageUrl} alt={cert.title} className="w-full h-full object-cover opacity-50 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-[#0a0a0f]/50 to-transparent p-6 flex flex-col justify-end">
+                  <h4 className="text-lg font-bold text-white leading-tight transform group-hover:-translate-y-1 transition-transform duration-300">{cert.title}</h4>
+                  <p className="text-neonBlue text-sm font-medium mt-1 transform group-hover:-translate-y-1 transition-transform duration-300">{cert.issuer}</p>
+                  
+                  <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+                    <span className="text-electricPurple bg-white/10 p-2 rounded-full inline-flex backdrop-blur-md border border-white/10">
+                      <ExternalLink size={16} />
+                    </span>
+                  </div>
                 </div>
               </motion.div>
             ))}

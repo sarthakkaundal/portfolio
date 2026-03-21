@@ -3,7 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Button from '../atoms/Button';
 import MagneticWrapper from '../atoms/MagneticWrapper';
 
-const ROLES = ["MERN Developer", "Problem Solver", "AI Enthusiast", "Software Engineer"];
+const ROLES = [
+  "Building scalable web apps.",
+  "Creating AI-assisted solutions.",
+  "Designing practical systems.",
+  "Solving real-world problems."
+];
 
 const HeroSection = () => {
   const [roleIndex, setRoleIndex] = useState(0);
@@ -11,7 +16,7 @@ const HeroSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setRoleIndex((prev) => (prev + 1) % ROLES.length);
-    }, 3000);
+    }, 4500);
     return () => clearInterval(interval);
   }, []);
   return (
@@ -46,18 +51,18 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-3xl md:text-5xl font-bold flex flex-wrap gap-3 text-lightGray mb-8"
+            className="flex flex-col gap-2 mb-6"
           >
-            <span>I'm {/^[AEIOU]/i.test(ROLES[roleIndex]) ? 'an' : 'a'}</span>
-            <div className="relative flex-1 min-w-[300px]">
+            <span className="text-3xl md:text-5xl font-bold text-white">MERN Developer.</span>
+            <div className="relative h-10 md:h-12 w-full overflow-hidden">
               <AnimatePresence mode="popLayout">
                 <motion.span
                   key={roleIndex}
                   initial={{ y: 40, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: -40, opacity: 0 }}
-                  transition={{ duration: 0.5, type: 'spring', stiffness: 100 }}
-                  className="absolute top-0 left-0 text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-gray-200 whitespace-nowrap"
+                  transition={{ duration: 0.6, type: 'spring', stiffness: 80 }}
+                  className="absolute top-0 left-0 text-transparent bg-clip-text bg-gradient-to-r from-neonBlue to-electricPurple whitespace-nowrap text-xl md:text-3xl font-bold"
                 >
                   {ROLES[roleIndex]}
                 </motion.span>
@@ -65,26 +70,36 @@ const HeroSection = () => {
             </div>
           </motion.div>
 
-          <motion.p
+          {/* Credibility / Proof Strip */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-lg md:text-xl text-lightGray max-w-xl leading-relaxed font-light mt-4"
+            className="flex flex-wrap gap-3 mb-2"
           >
-            Turning complex problems into <strong className="text-foreground font-semibold">scalable web solutions.</strong>
-            <br className="mb-2" />
-            I’m a software engineer specializing in building exceptional digital experiences with a focus on robust architectures and intuitive design.
+            <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-[11px] sm:text-xs font-mono text-gray-300 flex items-center gap-2 shadow-[0_0_10px_rgba(0,0,0,0.5)]"><div className="w-1.5 h-1.5 rounded-full bg-neonBlue animate-pulse"></div> 8.39 CGPA</span>
+            <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-[11px] sm:text-xs font-mono text-gray-300 flex items-center gap-2 shadow-[0_0_10px_rgba(0,0,0,0.5)]"><div className="w-1.5 h-1.5 rounded-full bg-electricPurple animate-pulse"></div> 3★ HackerRank</span>
+            <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-[11px] sm:text-xs font-mono text-gray-300 flex items-center gap-2 shadow-[0_0_10px_rgba(0,0,0,0.5)]"><div className="w-1.5 h-1.5 rounded-full bg-[#00f0ff] animate-pulse"></div> Full-Stack Focus</span>
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="text-base md:text-lg text-gray-400 max-w-xl leading-relaxed font-light mb-8"
+          >
+            I specialize in robust backend architecture and intuitive frontend interfaces. I build performant digital products, combining competitive programming logic with practical engineering.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex gap-4 pt-4"
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="flex flex-wrap items-center gap-5 pt-2"
           >
             <MagneticWrapper>
               <Button variant="primary" onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}>
-                View Projects
+                Explore Projects
               </Button>
             </MagneticWrapper>
             <MagneticWrapper>
@@ -92,6 +107,9 @@ const HeroSection = () => {
                 Download Resume
               </Button>
             </MagneticWrapper>
+            <a href="https://github.com/sarthakkaundal" target="_blank" rel="noreferrer" className="text-sm font-mono text-gray-400 hover:text-neonBlue transition-colors md:ml-2 flex items-center gap-1.5 group">
+              GitHub <span className="text-lg group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">↗</span>
+            </a>
           </motion.div>
         </div>
 

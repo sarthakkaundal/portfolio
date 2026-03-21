@@ -140,11 +140,11 @@ const ProjectsSection = () => {
                     >
                       <motion.div
                         animate={{
-                          scale: isActive ? 1 : 0.85,
-                          opacity: isActive ? 1 : 0.4,
+                          scale: isActive ? 1 : 0.9,
+                          opacity: isActive ? 1 : 0.55,
                         }}
                         transition={{ duration: 0.5, ease: "easeInOut" }}
-                        className={`h-full ${!isActive && 'cursor-pointer hover:opacity-60 transition-opacity'}`}
+                        className={`h-full ${!isActive && 'cursor-pointer hover:opacity-80 transition-opacity duration-300'}`}
                       >
                         <ProjectCard project={project} isActive={isActive} />
                       </motion.div>
