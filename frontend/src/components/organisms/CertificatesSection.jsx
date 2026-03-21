@@ -8,13 +8,59 @@ const CertificatesSection = () => {
   const [selectedCert, setSelectedCert] = useState(null);
 
   useEffect(() => {
-    // We leave this section empty initially as requested, or fetch from API
+    const staticCertificates = [
+      {
+        _id: "69b3a5565447721ad734d2c9",
+        title: "RAG with MongoDB",
+        issuer: "MongoDB University",
+        date: "2025-06-28T00:00:00.000Z",
+        imageUrl: "/certificates/rag-mongo-cert.png",
+        credentialUrl: "https://ti-user-certificates.s3.amazonaws.com/ae62dcd7-abdc-4e90-a570-83eccba49043/1d3368cf-b3ef-4b51-b548-91d0a9cab388-sarthak-kaundal-ae93dd04-bad2-4fdc-aa6c-8237951e3297-certificate.pdf"
+      },
+      {
+        _id: "69b3a6ec5447721ad734d2cb",
+        title: "Building GenAI Apps",
+        issuer: "MongoDB University",
+        date: "2025-06-29T00:00:00.000Z",
+        imageUrl: "/certificates/genaiapp-mongo-cert.png",
+        credentialUrl: "https://ti-user-certificates.s3.amazonaws.com/ae62dcd7-abdc-4e90-a570-83eccba49043/1d3368cf-b3ef-4b51-b548-91d0a9cab388-sarthak-kaundal-2b298a40-909b-4d21-9efb-4c4ff52df182-certificate.pdf"
+      },
+      {
+        _id: "69b3a8655447721ad734d2cd",
+        title: "The Bits and Bytes of Computer Networking",
+        issuer: "Coursera",
+        date: "2024-09-13T00:00:00.000Z",
+        imageUrl: "/certificates/networking-google-cert.png",
+        credentialUrl: "https://www.coursera.org/account/accomplishments/verify/G46CF2E30QIE"
+      },
+      {
+        _id: "69b3aa425447721ad734d2cf",
+        title: "Privacy and Security in Online Social Media",
+        issuer: "NPTEL",
+        date: "2025-05-27T00:00:00.000Z",
+        imageUrl: "/certificates/nptel-cert.png",
+        credentialUrl: "https://archive.nptel.ac.in/content/noc/NOC25/SEM1/Ecertificates/106/noc25-cs79/Course/NPTEL25CS79S14750057704485612.pdf"
+      },
+      {
+        _id: "69b3ab505447721ad734d2d1",
+        title: "Data Structures and Algorithms",
+        issuer: "NeoColab",
+        date: "2024-12-02T00:00:00.000Z",
+        imageUrl: "/certificates/dsa-neo-cert.png",
+        credentialUrl: "https://lpucolab438.examly.io/certificate/U2FsdGVkX1%2BuxHqonPuJkNh3PDEtg2EUWLTkFJWYM2Q%3D"
+      }
+    ];
+
     const fetchCertificates = async () => {
       try {
         const response = await api.get('/certificates');
-        setCertificates(response.data);
+        if (response.data && response.data.length > 0) {
+          setCertificates(response.data);
+        } else {
+          setCertificates(staticCertificates);
+        }
       } catch (err) {
-        console.error('Failed to fetch certificates:', err);
+        setCertificates(staticCertificates);
       }
     };
     fetchCertificates();
