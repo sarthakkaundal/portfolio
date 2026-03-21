@@ -73,18 +73,18 @@ const OpenSourceSection = () => {
   }, []);
 
   return (
-    <section id="opensource" className="py-24 px-6 max-w-6xl mx-auto">
+    <section id="opensource" className="py-24 px-6 max-w-6xl mx-auto w-full overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.5 }}
       >
-        <div className="flex items-center gap-4 mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
+        <div className="flex flex-col md:flex-row md:items-center gap-4 mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-white break-words w-full">
             <span className="text-neonBlue font-mono text-xl mr-2">03.</span> Coding Profiles & GitHub Activity
           </h2>
-          <div className="h-[1px] bg-white/10 flex-grow"></div>
+          <div className="hidden md:flex h-[1px] bg-white/10 flex-grow"></div>
         </div>
 
         <div className="space-y-16">
