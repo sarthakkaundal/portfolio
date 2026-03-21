@@ -16,7 +16,8 @@ const OpenSourceSection = () => {
       {
         id: 1,
         name: "PRAYAS",
-        description: "AI-powered disaster response and flood prediction platform.",
+        taxonomy: "AI Platform",
+        description: "AI-powered disaster response tool for predicting floods using terrain data.",
         language: "JavaScript",
         tech: ["React", "Firebase", "Gemini API"],
         stargazers_count: "★",
@@ -25,7 +26,8 @@ const OpenSourceSection = () => {
       {
         id: 2,
         name: "Linkro",
-        description: "Full-stack recruitment management platform with complete hiring workflows.",
+        taxonomy: "Recruitment System",
+        description: "Full-stack recruitment platform featuring role-based dashboards and hiring workflows.",
         language: "JavaScript",
         tech: ["MERN", "Tailwind", "JWT"],
         stargazers_count: "★",
@@ -34,7 +36,8 @@ const OpenSourceSection = () => {
       {
         id: 3,
         name: "Udyog-Saarthi",
-        description: "Inclusive job portal for candidates accessing reservation policies.",
+        taxonomy: "Career Portal",
+        description: "Inclusive job portal designed to facilitate employment under specific reservation policies.",
         language: "PHP",
         tech: ["HTML", "JS", "PHP"],
         stargazers_count: "★",
@@ -118,11 +121,14 @@ const OpenSourceSection = () => {
                      className="glass p-5 rounded-xl border border-white/5 hover:border-electricPurple/50 hover:bg-white/[0.03] transition-all group flex flex-col justify-between"
                    >
                      <div>
-                       <div className="flex justify-between items-start mb-2">
-                         <h4 className="text-neonBlue font-semibold text-lg group-hover:text-electricPurple transition-colors leading-tight">{repo.name}</h4>
-                         <span className="text-gray-500 hover:text-white transition-colors"><GitFork size={16} /></span>
+                       <div className="flex justify-between items-start mb-3">
+                         <div>
+                           <h4 className="text-neonBlue font-semibold text-lg group-hover:text-electricPurple transition-colors leading-tight mb-1.5">{repo.name}</h4>
+                           <span className="inline-block px-2 py-0.5 rounded text-[9px] uppercase tracking-wider bg-electricPurple/10 text-electricPurple border border-electricPurple/20 font-mono">{repo.taxonomy}</span>
+                         </div>
+                         <span className="text-gray-500 hover:text-white transition-colors mt-1"><GitFork size={16} /></span>
                        </div>
-                       <p className="text-gray-400 text-sm mb-4 leading-snug">{repo.description}</p>
+                       <p className="text-gray-400 text-sm mb-4 leading-relaxed font-light">{repo.description}</p>
                      </div>
                      <div className="flex flex-wrap items-center gap-2 mt-auto">
                        {repo.tech.map((t, i) => (

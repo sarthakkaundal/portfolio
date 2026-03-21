@@ -88,7 +88,7 @@ const HeroSection = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="text-base md:text-lg text-gray-400 max-w-xl leading-relaxed font-light mb-8"
           >
-            I specialize in robust backend architecture and intuitive frontend interfaces. I build performant digital products, combining competitive programming logic with practical engineering.
+            I build full-stack applications that combine clean user experiences, solid backend systems, and practical problem-solving.
           </motion.p>
 
           <motion.div
@@ -107,8 +107,8 @@ const HeroSection = () => {
                 Download Resume
               </Button>
             </MagneticWrapper>
-            <a href="https://github.com/sarthakkaundal" target="_blank" rel="noreferrer" className="text-sm font-mono text-gray-400 hover:text-neonBlue transition-colors md:ml-2 flex items-center gap-1.5 group">
-              GitHub <span className="text-lg group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">↗</span>
+            <a href="https://github.com/sarthakkaundal" target="_blank" rel="noreferrer" className="px-5 py-2.5 rounded-full border border-white/10 text-sm font-mono text-gray-400 hover:border-neonBlue hover:text-neonBlue transition-all md:ml-3 flex items-center gap-2 group bg-white/5 backdrop-blur-md">
+              GitHub <span className="text-lg leading-none group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
             </a>
           </motion.div>
         </div>

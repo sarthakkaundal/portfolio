@@ -30,8 +30,8 @@ const ContactSection = () => {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-6 leading-tight tracking-tight">
             Let's build your next <span className="text-gradient">full-stack solution.</span>
           </h2>
-          <p className="text-gray-400 text-base md:text-lg mb-10 max-w-md leading-relaxed">
-            Open to software engineering roles, internships, and dynamic collaborations. Whether you have a project idea or an opportunity, let's discuss how my skills align with your goals.
+          <p className="text-gray-400 text-base md:text-lg mb-10 max-w-md leading-relaxed font-light">
+            Whether you have a project idea, internship, or software role in mind, I’d be glad to connect.
           </p>
 
           <div className="space-y-4">

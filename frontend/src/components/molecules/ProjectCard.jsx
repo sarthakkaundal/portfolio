@@ -6,8 +6,8 @@ const ProjectCard = ({ project, isActive }) => {
   // A short 1-line impact statement derived from the first sentence of description or purpose
   const shortDescription = project.description ? project.description.split('.')[0] + '.' : '';
   
-  // Max 3 concise key highlights
-  const highlights = project.features ? project.features.slice(0, 3) : [];
+  // Max 2 concise key highlights to reduce density
+  const highlights = project.features ? project.features.slice(0, 2) : [];
 
   return (
     <div
@@ -34,7 +34,14 @@ const ProjectCard = ({ project, isActive }) => {
             alt={project.title}
             className={`w-full h-full object-cover transition-transform duration-700 ${isActive ? 'scale-100' : 'scale-105'}`}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-[#0a0a0f]/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-[#0a0a0f]/70 to-transparent" />
+          
+          {isActive && (
+            <div className="absolute top-4 right-4 bg-[#0a0a0f]/60 backdrop-blur-md border border-white/10 px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-[0_0_15px_rgba(0,0,0,0.5)] z-20">
+              <div className="w-1.5 h-1.5 rounded-full bg-neonBlue animate-pulse" />
+              <span className="text-[9px] uppercase tracking-widest text-white font-mono">Spotlight</span>
+            </div>
+          )}
           
           <div className="absolute bottom-4 left-5 right-5">
             <h3 className={`font-bold tracking-wide transition-all duration-500 leading-tight ${isActive ? 'text-xl sm:text-2xl text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]' : 'text-lg text-gray-400'}`}>

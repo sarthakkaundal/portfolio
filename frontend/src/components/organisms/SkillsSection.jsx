@@ -27,10 +27,13 @@ const SkillsSection = () => {
 
   const SkillCategory = ({ title, skills, delayOffset, isCore }) => (
     <div className={`mb-10 ${isCore ? 'p-6 md:p-8 rounded-2xl glass border-neonBlue/20 shadow-[0_0_30px_rgba(0,240,255,0.03)]' : ''}`}>
-      <h3 className={`font-mono uppercase tracking-widest mb-6 ${isCore ? 'text-neonBlue text-sm font-semibold flex items-center gap-2' : 'text-gray-500 text-xs'}`}>
-        {isCore && <div className="w-2 h-2 rounded-full bg-neonBlue animate-pulse"></div>}
-        {title}
-      </h3>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-2">
+        <h3 className={`font-mono uppercase tracking-widest ${isCore ? 'text-neonBlue text-sm font-semibold flex items-center gap-2' : 'text-gray-500 text-xs'}`}>
+          {isCore && <div className="w-2 h-2 rounded-full bg-neonBlue animate-pulse"></div>}
+          {title}
+        </h3>
+        {isCore && <span className="text-[10px] sm:text-xs text-gray-500 font-mono font-light tracking-wide">Primary stack used for full-stack development</span>}
+      </div>
       <div className={`grid gap-4 ${isCore ? 'grid-cols-2 md:grid-cols-3 lg:grid-cols-6' : 'grid-cols-2 md:grid-cols-3'}`}>
         {skills.map((skill, index) => (
           <SkillCard

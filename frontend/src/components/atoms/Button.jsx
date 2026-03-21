@@ -12,10 +12,10 @@ const Button = ({ children, onClick, variant = 'primary', className = '', ...pro
 
   return (
     <motion.button
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
+      whileHover={props.disabled ? {} : { scale: 1.05 }}
+      whileTap={props.disabled ? {} : { scale: 0.95 }}
       onClick={onClick}
-      className={`${baseClasses} ${variants[variant]} ${className}`}
+      className={`${baseClasses} ${variants[variant]} ${props.disabled ? 'opacity-50 cursor-not-allowed filter grayscale hover:-translate-y-0 hover:shadow-none' : ''} ${className}`}
       {...props}
     >
       {children}

@@ -34,15 +34,22 @@ const AboutMe = () => {
               </li>
               <li className="flex items-start gap-3 group">
                 <span className="text-neonBlue mt-[5px] text-xs transition-transform group-hover:scale-125 group-hover:text-white">▹</span>
-                <span className="leading-relaxed">Always exploring new technologies, from AI integrations to seamless cloud deployments.</span>
+                <span className="leading-relaxed">Exploring modern tools and AI integrations to build more useful and scalable applications.</span>
               </li>
             </ul>
 
-            <div className="pt-6 mt-4 border-t border-white/10">
-              <p className="text-sm font-mono text-gray-500 leading-relaxed">
-                <span className="text-white/80">Current Status:</span> Pursuing BTech Computer Science (CGPA: <span className="text-neonBlue">8.39</span>)<br/>
-                Actively seeking software engineering roles and collaborations.
-              </p>
+            <div className="mt-8">
+              <div className="inline-flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 p-4 rounded-lg bg-electricPurple/5 border border-electricPurple/10 w-full relative overflow-hidden group">
+                <div className="absolute left-0 top-0 h-full w-[2px] bg-electricPurple/50"></div>
+                <div className="flex items-center gap-2 text-white font-mono text-sm tracking-tight whitespace-nowrap">
+                  <div className="w-2 h-2 rounded-full bg-electricPurple animate-pulse" />
+                  System Status:
+                </div>
+                <div className="hidden sm:block w-[1px] h-4 bg-white/20"></div>
+                <p className="text-sm text-gray-400 leading-snug font-light">
+                  Pursuing BTech CS. Actively seeking <span className="text-white font-medium">software engineering roles</span> and collaborations.
+                </p>
+              </div>
             </div>
           </div>
 

@@ -120,6 +120,11 @@ const ProjectsSection = () => {
             <span className="text-neonBlue font-mono text-xl mr-2">04.</span> Featured Projects
           </h2>
           <div className="h-[1px] bg-white/10 flex-grow"></div>
+          {!loading && projects.length > 0 && (
+            <div className="font-mono text-sm text-gray-400 bg-white/5 px-3 py-1 rounded-full border border-white/10 hidden sm:block shadow-sm">
+              <span className="text-white">{selectedIndex + 1}</span> / {projects.length}
+            </div>
+          )}
         </div>
 
         {loading ? (
@@ -140,11 +145,11 @@ const ProjectsSection = () => {
                     >
                       <motion.div
                         animate={{
-                          scale: isActive ? 1 : 0.9,
-                          opacity: isActive ? 1 : 0.55,
+                          scale: isActive ? 1 : 0.92,
+                          opacity: isActive ? 1 : 0.65,
                         }}
                         transition={{ duration: 0.5, ease: "easeInOut" }}
-                        className={`h-full ${!isActive && 'cursor-pointer hover:opacity-80 transition-opacity duration-300'}`}
+                        className={`h-full ${!isActive && 'cursor-pointer hover:opacity-100 hover:scale-[0.94] transition-all duration-300'}`}
                       >
                         <ProjectCard project={project} isActive={isActive} />
                       </motion.div>
