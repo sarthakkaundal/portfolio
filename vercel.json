@@ -19,16 +19,8 @@
       "destination": "/backend/server.js"
     },
     {
-      "source": "/assets/(.*)",
-      "destination": "/frontend/assets/$1"
-    },
-    {
-      "source": "/certificates/(.*)",
-      "destination": "/frontend/certificates/$1"
-    },
-    {
-      "source": "/vite.svg",
-      "destination": "/frontend/vite.svg"
+      "source": "/(.*\\..*)",
+      "destination": "/frontend/$1"
     },
     {
       "source": "/(.*)",
