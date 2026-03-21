@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Sun, Moon } from 'lucide-react';
+import { Sun, Moon, Menu, X } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
+import { AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+
+  const closeMenu = () => setIsOpen(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,7 +67,60 @@ const Navbar = () => {
             {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
           </button>
         </div>
+
+        {/* Mobile Menu Toggle & Theme Button */}
+        <div className="md:hidden flex items-center gap-2">
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full hover:bg-gray-500/10 text-foreground transition-colors flex items-center justify-center"
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+          
+          <button 
+            onClick={() => setIsOpen(!isOpen)} 
+            className="text-foreground p-2 focus:outline-none flex items-center justify-center rounded-full hover:bg-gray-500/10 transition-colors"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Layout Dropdown Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="absolute top-full left-0 w-full bg-background/95 backdrop-blur-xl border-b border-white/5 shadow-2xl flex flex-col md:hidden overflow-hidden"
+          >
+            <div className="px-6 py-8 flex flex-col gap-6">
+              {navLinks.map((link, idx) => (
+                <a
+                  key={idx}
+                  href={link.href}
+                  onClick={closeMenu}
+                  className="text-lightGray hover:text-foreground hover:text-glow transition-all text-base font-medium flex items-center tracking-wide"
+                >
+                  <span className="text-electricPurple mr-4 font-mono text-sm leading-none">0{idx + 1}.</span> {link.name}
+                </a>
+              ))}
+              <a
+                href="/Resume.pdf"
+                target="_blank"
+                onClick={closeMenu}
+                className="mt-2 w-[max-content] px-8 py-3 text-sm text-neonBlue border border-neonBlue rounded-md hover:bg-neonBlue/10 transition-colors text-center"
+              >
+                Resume
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 };
