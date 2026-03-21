@@ -117,7 +117,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="relative hidden md:flex justify-center"
+          className="relative flex justify-center mt-12 md:mt-0 w-full"
         >
           <div className="w-72 h-72 md:w-96 md:h-96 rounded-2xl border-2 border-neonBlue relative z-10 p-2 object-cover overflow-hidden transition-all hover:border-electricPurple shadow-2xl group">
              {/* Profile image Placeholder implementation. User should replace /profile.jpg with their actual image */}

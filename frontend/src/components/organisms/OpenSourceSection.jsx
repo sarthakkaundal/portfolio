@@ -89,11 +89,12 @@ const OpenSourceSection = () => {
 
         <div className="space-y-16">
           {/* GitHub Heatmap */}
-          <div className="glass p-8 rounded-2xl flex flex-col items-center overflow-x-auto border-white/5">
+          <div className="glass p-4 md:p-8 rounded-2xl flex flex-col border-white/5 w-full overflow-hidden">
             <h3 className="text-xl font-semibold text-white mb-6 self-start flex items-center gap-2">
               <Code2 className="text-neonBlue" /> GitHub Contributions
             </h3>
-            <div className="min-w-[800px] pb-4">
+            <div className="w-full overflow-x-auto pb-4">
+              <div className="min-w-[800px] pr-4">
               <GitHubCalendar 
                 username="sarthakkaundal" 
                 colorScheme={theme === 'dark' ? 'dark' : 'light'}
@@ -102,6 +103,7 @@ const OpenSourceSection = () => {
                   dark: ['#12121c', '#00f3ff40', '#00f3ff80', '#00f3ffc0', '#00f3ff']
                 }}
               />
+            </div>
             </div>
           </div>
 
@@ -161,14 +163,14 @@ const OpenSourceSection = () => {
 
                {leetCodeStats ? (
                   leetCodeStats.error ? (
-                    <div className="glass p-6 rounded-xl border border-red-500/20 h-[280px] flex flex-col items-center justify-center text-center">
+                    <div className="glass p-6 rounded-xl border border-red-500/20 min-h-[280px] flex flex-col items-center justify-center text-center">
                       <p className="text-red-400 mb-2">Failed to load LeetCode statistics.</p>
                       <p className="text-gray-500 text-sm">The API might be heavily rate-limited.</p>
                       <a href="https://leetcode.com/u/saarthak_kaundal/" target="_blank" rel="noreferrer" className="mt-6 px-4 py-2 border border-white/10 rounded-md hover:bg-white/5 transition-colors text-sm">View Profile Directly</a>
                     </div>
                   ) : (
-                    <div className="glass p-6 rounded-xl border border-white/5 flex flex-col items-center justify-center h-[280px] relative overflow-hidden group hover:border-white/10 transition-colors">
-                      <div className="z-10 relative flex items-center justify-center gap-8 w-full">
+                    <div className="glass p-6 rounded-xl border border-white/5 flex flex-col items-center justify-center min-h-[280px] relative overflow-hidden group hover:border-white/10 transition-colors">
+                      <div className="z-10 relative flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 w-full py-4">
                         <div className="relative w-32 h-32 flex items-center justify-center">
                           <svg className="w-full h-full transform -rotate-90 drop-shadow-[0_0_8px_rgba(0,240,255,0.4)]" viewBox="0 0 100 100">
                             <circle cx="50" cy="50" r="45" fill="none" stroke="#12121c" strokeWidth="8" />
@@ -207,7 +209,7 @@ const OpenSourceSection = () => {
                     </div>
                   )
                ) : (
-                 <div className="glass p-6 rounded-lg border border-white/5 h-[350px] flex items-center justify-center">
+                 <div className="glass p-6 rounded-lg border border-white/5 min-h-[350px] flex items-center justify-center">
                    <div className="w-8 h-8 rounded-full border-4 border-white/20 border-t-electricPurple animate-spin"></div>
                  </div>
                )}
