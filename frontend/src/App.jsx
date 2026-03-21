@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion, useScroll } from 'framer-motion';
 import Home from './pages/Home';
 import CustomCursor from './components/atoms/CustomCursor';

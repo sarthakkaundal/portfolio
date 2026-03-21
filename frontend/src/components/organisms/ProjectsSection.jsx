@@ -43,6 +43,23 @@ const ProjectsSection = () => {
         ],
         githubLink: 'https://github.com/sarthakkaundal/PRAYAS',
         imagePlaceholder: 'projects/prayas.png',
+      },
+      {
+        _id: '3',
+        title: 'Udyog Saarthi — Empowering Careers & Inclusive Job Platform',
+        description: 'Udyog Saarthi is a dedicated career empowerment and job portal designed to provide personalized job coaching, training materials, and job opportunities. It specifically focuses on facilitating inclusive hiring by curating curated job openings that fall under the 4% reservation policy, connecting candidates with accessible employment paths.',
+        purpose: 'The project was developed to empower individuals by combining access to a supportive community, tailored career mentorship, and comprehensive skill-building resources. Udyog Saarthi bridges the gap between eager learners and inclusive employers, ensuring everyone can navigate their career journey with confidence.',
+        techStack: ['HTML5', 'Tailwind CSS', 'JavaScript', 'PHP'],
+        features: [
+          'Exclusive Job Board featuring opportunities focused on the 4% reservation policy',
+          'Personalized Learning Hub with structured training tools, quizzes, and guides',
+          'Career Mentorship offering dedicated support and expert coaching sessions',
+          'Dedicated Support Options including tailored accessibility resources',
+          'Interactive, responsive user interface with built-in Light/Dark mode functionality',
+          'Integrated Application and Contact Forms handling submissions efficiently'
+        ],
+        githubLink: 'https://github.com/arpitkumar08/Udyog-Saarthi',
+        imagePlaceholder: 'projects/udyogsarthi.png',
       }
     ];
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Terminal } from 'lucide-react';
 
@@ -148,10 +148,10 @@ const TerminalEasterEgg = () => {
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="relative w-full max-w-3xl h-[500px] max-h-[85vh] bg-[#1e1e1e] text-[#d4d4d4] rounded-lg shadow-2xl shadow-neonBlue/10 overflow-hidden font-mono border border-[#333] flex flex-col z-10"
+            className="relative w-full max-w-3xl h-[500px] max-h-[85vh] bg-[#ffffff] dark:bg-[#1e1e1e] text-foreground dark:text-[#d4d4d4] rounded-lg shadow-2xl shadow-neonBlue/10 overflow-hidden font-mono border border-gray-200 dark:border-[#333] flex flex-col z-10"
           >
             {/* Default macOS-like terminal header */}
-            <div className="flex items-center px-4 py-3 bg-[#2d2d2d] border-b border-[#333] select-none cursor-default">
+            <div className="flex items-center px-4 py-3 bg-gray-100 dark:bg-[#2d2d2d] border-b border-gray-200 dark:border-[#333] select-none cursor-default">
               <div className="flex gap-2">
                 <div 
                   className="w-3 h-3 rounded-full bg-red-500 cursor-pointer hover:bg-red-600 relative group"
@@ -162,7 +162,7 @@ const TerminalEasterEgg = () => {
                 <div className="w-3 h-3 rounded-full bg-yellow-500 cursor-pointer"></div>
                 <div className="w-3 h-3 rounded-full bg-green-500 cursor-pointer"></div>
               </div>
-              <div className="mx-auto text-xs font-semibold text-gray-400">guest@portfolio:~</div>
+              <div className="mx-auto text-xs font-semibold text-gray-600 dark:text-gray-400">guest@portfolio:~</div>
             </div>
 
             <div 
@@ -174,7 +174,7 @@ const TerminalEasterEgg = () => {
                   key={i}
                   className={`mb-2 ${
                     cmd.type === 'command' ? 'text-white font-bold' :
-                    cmd.type === 'system' ? 'text-green-400' : 'text-[#d4d4d4]'
+                    cmd.type === 'system' ? 'text-green-600 dark:text-green-400' : 'text-foreground dark:text-[#d4d4d4]'
                   }`}
                 >
                   {cmd.type === 'response' ? <span className="ml-2 whitespace-pre-wrap">{cmd.text}</span> : cmd.text}
