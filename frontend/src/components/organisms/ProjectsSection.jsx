@@ -1,11 +1,37 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
 import ProjectCard from '../molecules/ProjectCard';
 import api from '../../services/api';
 
 const ProjectsSection = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { loop: true, align: 'center', skipSnaps: false },
+    [Autoplay({ delay: 5000, stopOnInteraction: true, stopOnMouseEnter: true })]
+  );
+
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
+  const scrollTo = useCallback((index) => emblaApi && emblaApi.scrollTo(index), [emblaApi]);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on('select', onSelect);
+    emblaApi.on('reInit', onSelect);
+  }, [emblaApi, onSelect]);
 
   useEffect(() => {
     // Initial static projects to fallback to if API is empty or fails
@@ -101,18 +127,68 @@ const ProjectsSection = () => {
             <div className="w-12 h-12 rounded-full border-4 border-white/20 border-t-neonBlue animate-spin"></div>
           </div>
         ) : (
-          <div className="grid md:grid-cols-2 gap-8">
-            {projects.map((project, idx) => (
-              <motion.div
-                key={project._id || idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-              >
-                <ProjectCard project={project} />
-              </motion.div>
-            ))}
+          <div className="relative max-w-[100vw] -mx-6 md:mx-0">
+            <div className="overflow-hidden" ref={emblaRef}>
+              <div className="flex touch-pan-y py-12 px-4 md:px-0 items-center">
+                {projects.map((project, idx) => {
+                  const isActive = idx === selectedIndex;
+                  return (
+                    <div 
+                      key={project._id || idx} 
+                      className="relative min-w-0 flex-[0_0_85%] sm:flex-[0_0_70%] md:flex-[0_0_60%] lg:flex-[0_0_50%] mx-2 md:mx-4"
+                      onClick={() => !isActive && scrollTo(idx)}
+                    >
+                      <motion.div
+                        animate={{
+                          scale: isActive ? 1 : 0.85,
+                          opacity: isActive ? 1 : 0.4,
+                        }}
+                        transition={{ duration: 0.5, ease: "easeInOut" }}
+                        className={`h-full ${!isActive && 'cursor-pointer hover:opacity-60 transition-opacity'}`}
+                      >
+                        <ProjectCard project={project} isActive={isActive} />
+                      </motion.div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Controls */}
+            {projects.length > 1 && (
+              <div className="flex items-center justify-center gap-6 mt-6">
+                <button
+                  onClick={scrollPrev}
+                  className="p-3 rounded-full bg-white/5 hover:bg-white/10 backdrop-blur border border-white/10 text-white transition-all hover:text-neonBlue hover:scale-110 shadow-[0_0_15px_rgba(0,0,0,0.5)] z-10"
+                  aria-label="Previous project"
+                >
+                  <ChevronLeft size={24} />
+                </button>
+                
+                <div className="flex gap-3 z-10">
+                  {projects.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => scrollTo(idx)}
+                      className={`h-2 rounded-full transition-all duration-300 ${
+                        selectedIndex === idx 
+                          ? 'w-8 bg-neonBlue shadow-[0_0_10px_rgba(0,240,255,0.7)]' 
+                          : 'w-2 bg-white/20 hover:bg-white/40'
+                      }`}
+                      aria-label={`Go to project ${idx + 1}`}
+                    />
+                  ))}
+                </div>
+
+                <button
+                  onClick={scrollNext}
+                  className="p-3 rounded-full bg-white/5 hover:bg-white/10 backdrop-blur border border-white/10 text-white transition-all hover:text-neonBlue hover:scale-110 shadow-[0_0_15px_rgba(0,0,0,0.5)] z-10"
+                  aria-label="Next project"
+                >
+                  <ChevronRight size={24} />
+                </button>
+              </div>
+            )}
           </div>
         )}
       </motion.div>
