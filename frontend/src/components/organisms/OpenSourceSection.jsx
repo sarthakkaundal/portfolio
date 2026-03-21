@@ -93,8 +93,8 @@ const OpenSourceSection = () => {
             <h3 className="text-xl font-semibold text-white mb-6 self-start flex items-center gap-2">
               <Code2 className="text-neonBlue" /> GitHub Contributions
             </h3>
-            <div className="w-full overflow-x-auto pb-4">
-              <div className="min-w-[800px] pr-4">
+            <div className="w-full overflow-x-auto pb-4 custom-scrollbar" style={{ direction: 'rtl' }}>
+              <div className="min-w-[800px] pr-4 sm:pr-0" style={{ direction: 'ltr' }}>
               <GitHubCalendar 
                 username="sarthakkaundal" 
                 colorScheme={theme === 'dark' ? 'dark' : 'light'}
@@ -187,7 +187,7 @@ const OpenSourceSection = () => {
                           </div>
                         </div>
                         
-                        <div className="flex flex-col gap-3 flex-1">
+                        <div className="flex flex-col gap-3 w-full sm:flex-1 max-w-[200px] mt-2 sm:mt-0">
                           <div className="flex items-center justify-between text-sm">
                             <span className="text-green-500 font-medium">Easy</span>
                             <span className="text-white font-mono">{leetCodeStats.easySolved}</span>
