@@ -13,7 +13,7 @@ const ProjectCard = ({ project, isActive }) => {
     <div
       className={`relative h-full w-full rounded-2xl overflow-hidden transition-all duration-700 ease-in-out ${
         isActive 
-          ? 'glass-card border-neonBlue/50 shadow-[0_0_30px_rgba(0,240,255,0.15)] bg-[#0a0a0f]/80' 
+          ? 'glass-card border-neonBlue/50 shadow-[0_0_30px_rgba(0,240,255,0.15)] bg-darkGray/80' 
           : 'bg-white/[0.02] border-white/5 backdrop-blur-md shadow-none grayscale-[40%]'
       }`}
     >
@@ -21,7 +21,7 @@ const ProjectCard = ({ project, isActive }) => {
       {isActive && (
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none rounded-2xl">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-[conic-gradient(from_0deg,transparent_0_340deg,rgba(0,240,255,0.2)_360deg)] animate-[spin_4s_linear_infinite]" />
-          <div className="absolute inset-[1px] bg-[#0a0a0f]/90 rounded-2xl backdrop-blur-xl" />
+          <div className="absolute inset-[1px] bg-darkGray/90 rounded-2xl backdrop-blur-xl" />
         </div>
       )}
 
@@ -34,10 +34,10 @@ const ProjectCard = ({ project, isActive }) => {
             alt={project.title}
             className={`w-full h-full object-cover transition-transform duration-700 ${isActive ? 'scale-100' : 'scale-105'}`}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-[#0a0a0f]/70 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-darkGray via-darkGray/80 to-transparent" />
           
           {isActive && (
-            <div className="absolute top-4 right-4 bg-[#0a0a0f]/60 backdrop-blur-md border border-white/10 px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-[0_0_15px_rgba(0,0,0,0.5)] z-20">
+            <div className="absolute top-4 right-4 bg-darkGray/60 backdrop-blur-md border border-white/10 px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-[0_0_15px_rgba(0,0,0,0.5)] z-20">
               <div className="w-1.5 h-1.5 rounded-full bg-neonBlue animate-pulse" />
               <span className="text-[9px] uppercase tracking-widest text-white font-mono">Spotlight</span>
             </div>

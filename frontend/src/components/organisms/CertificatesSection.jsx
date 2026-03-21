@@ -54,7 +54,7 @@ const CertificatesSection = () => {
                 onClick={() => setSelectedCert(cert)}
               >
                 <img src={cert.imageUrl} alt={cert.title} className="w-full h-full object-cover opacity-50 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-[#0a0a0f]/50 to-transparent p-6 flex flex-col justify-end">
+                <div className="absolute inset-0 bg-gradient-to-t from-darkGray via-darkGray/70 to-transparent p-6 flex flex-col justify-end">
                   <h4 className="text-lg font-bold text-white leading-tight transform group-hover:-translate-y-1 transition-transform duration-300">{cert.title}</h4>
                   <p className="text-neonBlue text-sm font-medium mt-1 transform group-hover:-translate-y-1 transition-transform duration-300">{cert.issuer}</p>
                   

@@ -147,13 +147,13 @@ const OpenSourceSection = () => {
                </h3>
                
                {/* HackerRank Proof Card */}
-               <div className="glass p-5 rounded-xl border border-white/5 bg-gradient-to-r from-[#211b33]/40 to-transparent mb-4 flex items-center justify-between group hover:border-white/10 transition-colors">
+               <div className="glass p-5 rounded-xl border border-white/5 bg-gradient-to-r from-electricPurple/10 to-transparent mb-4 flex items-center justify-between group hover:border-white/10 transition-colors">
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10 rounded-full bg-electricPurple/20 flex items-center justify-center text-electricPurple border border-electricPurple/30">
                       ★
                     </div>
                     <div>
-                      <p className="text-white font-semibold flex items-center gap-2">HackerRank <span className="text-[10px] px-2 py-0.5 bg-gray-700/50 rounded-full text-gray-300">Java</span></p>
+                      <p className="text-white font-semibold flex items-center gap-2">HackerRank <span className="text-[10px] px-2 py-0.5 bg-gray-500/20 rounded-full text-gray-400">Java</span></p>
                       <p className="text-sm text-electricPurple font-medium">3★ Silver Badge</p>
                     </div>
                   </div>
@@ -187,15 +187,15 @@ const OpenSourceSection = () => {
                         
                         <div className="flex flex-col gap-3 flex-1">
                           <div className="flex items-center justify-between text-sm">
-                            <span className="text-green-400 font-medium">Easy</span>
+                            <span className="text-green-500 font-medium">Easy</span>
                             <span className="text-white font-mono">{leetCodeStats.easySolved}</span>
                           </div>
                           <div className="flex items-center justify-between text-sm">
-                            <span className="text-yellow-400 font-medium">Med</span>
+                            <span className="text-yellow-500 font-medium">Med</span>
                             <span className="text-white font-mono">{leetCodeStats.mediumSolved}</span>
                           </div>
                           <div className="flex items-center justify-between text-sm">
-                            <span className="text-red-400 font-medium">Hard</span>
+                            <span className="text-red-500 font-medium">Hard</span>
                             <span className="text-white font-mono">{leetCodeStats.hardSolved}</span>
                           </div>
                         </div>
