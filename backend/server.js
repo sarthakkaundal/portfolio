@@ -1,15 +1,15 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import connectDB from './config/db.js';
+// import connectDB from './config/db.js';
 import projectRoutes from './routes/projectRoutes.js';
 import certificateRoutes from './routes/certificateRoutes.js';
 import contactRoutes from './routes/contactRoutes.js';
 
 dotenv.config();
 
-// Connect to database
-connectDB();
+// Bypass database connection for seamless Vercel deployment
+// connectDB();
 
 const app = express();
 

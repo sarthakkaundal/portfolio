@@ -8,8 +8,7 @@ export const submitMessage = async (req, res, next) => {
   try {
     const { name, email, message } = req.body;
 
-    const newMessage = new Message({ name, email, message });
-    await newMessage.save();
+    // Direct email bypass activated (removed Database save requirement)
 
     // Send email using Nodemailer
     const transporter = nodemailer.createTransport({
