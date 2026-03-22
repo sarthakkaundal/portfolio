@@ -57,11 +57,38 @@ const AboutMe = () => {
             <div className="glass p-6 rounded-xl border border-white/5 shadow-xl relative overflow-hidden group hover:border-white/10 transition-colors">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neonBlue to-electricPurple scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
               <h3 className="text-xs uppercase tracking-widest text-gray-500 mb-4 font-mono">Education</h3>
-              <p className="text-lg font-bold text-white mb-1">BTech Computer Science</p>
-              <p className="text-gray-400 text-sm mb-4">Lovely Professional University</p>
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-neonBlue/10 border border-neonBlue/20 rounded text-neonBlue text-sm font-mono">
-                <span className="w-2 h-2 rounded-full bg-neonBlue animate-pulse"></span>
-                CGPA: 8.39
+              
+              <div className="space-y-6">
+                <div>
+                  <p className="text-lg font-bold text-white mb-1">BTech Computer Science</p>
+                  <p className="text-gray-400 text-sm mb-3">Lovely Professional University</p>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-neonBlue/10 border border-neonBlue/20 rounded text-neonBlue text-sm font-mono">
+                    <span className="w-2 h-2 rounded-full bg-neonBlue animate-pulse"></span>
+                    CGPA: 8.39
+                  </div>
+                </div>
+
+                <div className="w-full h-[1px] bg-white/10"></div>
+
+                <div>
+                  <p className="text-lg font-bold text-white mb-1">Class 12th</p>
+                  <p className="text-gray-400 text-sm mb-3">Central Board of Secondary Education (CBSE)</p>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-electricPurple/10 border border-electricPurple/20 rounded text-electricPurple text-sm font-mono">
+                    <span className="w-2 h-2 rounded-full bg-electricPurple animate-pulse"></span>
+                    Percentage: 86%
+                  </div>
+                </div>
+
+                <div className="w-full h-[1px] bg-white/10"></div>
+
+                <div>
+                  <p className="text-lg font-bold text-white mb-1">Class 10th</p>
+                  <p className="text-gray-400 text-sm mb-3">Central Board of Secondary Education (CBSE)</p>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-neonBlue/10 border border-neonBlue/20 rounded text-neonBlue text-sm font-mono">
+                    <span className="w-2 h-2 rounded-full bg-neonBlue animate-pulse"></span>
+                    Percentage: 95%
+                  </div>
+                </div>
               </div>
             </div>
 

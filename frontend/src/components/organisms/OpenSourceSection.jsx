@@ -94,7 +94,7 @@ const OpenSourceSection = () => {
               <Code2 className="text-neonBlue" /> GitHub Contributions
             </h3>
             <div className="w-full overflow-x-auto pb-4 custom-scrollbar" style={{ direction: 'rtl' }}>
-              <div className="min-w-[800px] pr-4 sm:pr-0" style={{ direction: 'ltr' }}>
+              <div className="min-w-[800px] w-max mx-auto pr-4 sm:pr-0 flex justify-center" style={{ direction: 'ltr' }}>
               <GitHubCalendar 
                 username="sarthakkaundal" 
                 colorScheme={theme === 'dark' ? 'dark' : 'light'}
