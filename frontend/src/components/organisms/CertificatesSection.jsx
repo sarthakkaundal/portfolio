@@ -141,12 +141,12 @@ const CertificatesSection = () => {
               </button>
               <img src={selectedCert.imageUrl} alt={selectedCert.title} className="w-full rounded-lg object-contain max-h-[80vh]" />
               {selectedCert.credentialUrl && (
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
+                <div className="absolute bottom-6 left-0 w-full flex justify-center items-center px-4">
                    <a
                     href={selectedCert.credentialUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-black/50 backdrop-blur-md px-6 py-2 rounded-full text-white font-medium hover:bg-neonBlue transition-colors border border-white/20"
+                    className="inline-flex items-center justify-center bg-black/60 backdrop-blur-md px-6 py-2 rounded-full text-white text-sm sm:text-base font-medium hover:bg-neonBlue transition-colors border border-white/20 shadow-lg whitespace-nowrap"
                   >
                     Verify Credential
                   </a>
