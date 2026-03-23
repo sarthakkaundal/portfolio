@@ -149,7 +149,7 @@ const OpenSourceSection = () => {
                </h3>
                
                {/* HackerRank Proof Card */}
-               <div className="glass p-5 rounded-xl border border-white/5 bg-gradient-to-r from-electricPurple/10 to-transparent mb-4 flex items-center justify-between group hover:border-white/10 transition-colors">
+               <div className="glass p-5 rounded-xl border border-white/5 bg-electricPurple/10 mb-4 flex items-center justify-between group hover:border-white/10 transition-colors">
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10 rounded-full bg-electricPurple/20 flex items-center justify-center text-electricPurple border border-electricPurple/30">
                       ★

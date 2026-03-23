@@ -55,7 +55,7 @@ const AboutMe = () => {
 
           <div className="md:col-span-2 space-y-6">
             <div className="glass p-6 rounded-xl border border-white/5 shadow-xl relative overflow-hidden group hover:border-white/10 transition-colors">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neonBlue to-electricPurple scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+              <div className="absolute top-0 left-0 w-full h-1 bg-neonBlue scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
               <h3 className="text-xs uppercase tracking-widest text-gray-500 mb-4 font-mono">Education</h3>
               
               <div className="space-y-6">
@@ -93,7 +93,7 @@ const AboutMe = () => {
             </div>
 
             <div className="glass p-6 rounded-xl border border-white/5 shadow-xl relative overflow-hidden group hover:border-white/10 transition-colors">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-electricPurple to-neonBlue scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+              <div className="absolute top-0 left-0 w-full h-1 bg-electricPurple scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
               <h3 className="text-xs uppercase tracking-widest text-gray-500 mb-4 font-mono">Key Highlights</h3>
               <ul className="text-gray-400 text-sm space-y-3">
                 <li className="flex items-start gap-3">

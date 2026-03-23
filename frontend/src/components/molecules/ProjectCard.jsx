@@ -20,7 +20,7 @@ const ProjectCard = ({ project, isActive }) => {
       {/* Animated Cyberpunk Background Accent for active card */}
       {isActive && (
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none rounded-2xl">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-[conic-gradient(from_0deg,transparent_0_340deg,rgba(0,240,255,0.2)_360deg)] animate-[spin_4s_linear_infinite]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-neonBlue/20 animate-[spin_4s_linear_infinite]" />
           <div className="absolute inset-[1px] bg-darkGray/90 rounded-2xl backdrop-blur-xl" />
         </div>
       )}
@@ -34,7 +34,7 @@ const ProjectCard = ({ project, isActive }) => {
             alt={project.title}
             className={`w-full h-full object-cover transition-transform duration-700 ${isActive ? 'scale-100' : 'scale-105'}`}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-darkGray via-darkGray/80 to-transparent" />
+          <div className="absolute inset-0 bg-darkGray/60" />
           
           {isActive && (
             <div className="absolute top-4 right-4 bg-darkGray/60 backdrop-blur-md border border-white/10 px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-[0_0_15px_rgba(0,0,0,0.5)] z-20">

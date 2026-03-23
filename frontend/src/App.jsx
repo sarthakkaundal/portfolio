@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="min-h-screen bg-background text-white selection:bg-neonBlue selection:text-darkGray overflow-x-hidden">
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-neonBlue to-electricPurple z-[100] origin-left"
+        className="fixed top-0 left-0 right-0 h-1 bg-neonBlue z-[100] origin-left"
         style={{ scaleX: scrollYProgress }}
       />
       <CustomCursor />

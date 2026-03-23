@@ -83,7 +83,7 @@ const CertificatesSection = () => {
 
         {certificates.length === 0 ? (
           <div className="glass p-12 rounded-3xl border border-white/5 text-center flex flex-col items-center justify-center relative overflow-hidden group">
-             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neonBlue to-electricPurple scale-x-50 group-hover:scale-x-100 transition-transform duration-700"></div>
+             <div className="absolute top-0 left-0 w-full h-1 bg-neonBlue scale-x-50 group-hover:scale-x-100 transition-transform duration-700"></div>
              <div className="w-16 h-16 rounded-full bg-darkGray border border-neonBlue flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(0,243,255,0.2)]">
                <span className="text-neonBlue font-mono text-xl">{'</>'}</span>
              </div>
@@ -100,7 +100,7 @@ const CertificatesSection = () => {
                 onClick={() => setSelectedCert(cert)}
               >
                 <img src={cert.imageUrl} alt={cert.title} className="w-full h-full object-cover opacity-50 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-t from-darkGray via-darkGray/70 to-transparent p-6 flex flex-col justify-end">
+                <div className="absolute inset-0 bg-darkGray/80 p-6 flex flex-col justify-end">
                   <h4 className="text-lg font-bold text-white leading-tight transform group-hover:-translate-y-1 transition-transform duration-300">{cert.title}</h4>
                   <p className="text-neonBlue text-sm font-medium mt-1 transform group-hover:-translate-y-1 transition-transform duration-300">{cert.issuer}</p>
                   

@@ -81,10 +81,7 @@
   }
 
   .text-gradient {
-    background-image: linear-gradient(to right, rgb(var(--color-neonBlue)), rgb(var(--color-electricPurple)));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: rgb(var(--color-neonBlue));
   }
 }
 

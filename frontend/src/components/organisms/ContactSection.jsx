@@ -83,7 +83,7 @@ const ContactSection = () => {
           className="lg:w-1/2 w-full relative"
         >
           {/* Subtle glow behind the form card */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-neonBlue/20 to-electricPurple/20 blur-2xl -z-10 rounded-3xl" />
+          <div className="absolute inset-0 bg-neonBlue/20 blur-2xl -z-10 rounded-3xl" />
           <div className="relative z-10 w-full glass border border-glassBorder/50 rounded-3xl p-[1px]">
             <div className="bg-background/80 backdrop-blur-3xl rounded-3xl w-full">
               <ContactForm />

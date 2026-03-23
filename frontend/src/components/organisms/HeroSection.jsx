@@ -62,7 +62,7 @@ const HeroSection = () => {
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: -40, opacity: 0 }}
                   transition={{ duration: 0.6, type: 'spring', stiffness: 80 }}
-                  className="absolute top-0 left-0 text-transparent bg-clip-text bg-gradient-to-r from-neonBlue to-electricPurple whitespace-nowrap text-xl md:text-3xl font-bold"
+                  className="absolute top-0 left-0 text-neonBlue whitespace-nowrap text-xl md:text-3xl font-bold"
                 >
                   {ROLES[roleIndex]}
                 </motion.span>
