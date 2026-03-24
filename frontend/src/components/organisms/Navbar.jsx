@@ -38,7 +38,7 @@ const Navbar = () => {
             <a
               key={idx}
               href={link.href}
-              className="text-text-medium hover:text-text-dark hover:text-accent-teal transition-all text-sm font-semibold uppercase tracking-wide"
+              className="px-3 py-1.5 text-text-medium text-sm font-semibold uppercase tracking-wide border-2 border-transparent rounded-lg transition-all hover:text-text-dark hover:border-text-dark hover:bg-white hover:-translate-y-0.5 hover:shadow-[2px_2px_0px_rgba(44,62,80,1)]"
             >
               {link.name}
             </a>
@@ -74,7 +74,7 @@ const Navbar = () => {
                 key={idx}
                 href={link.href}
                 onClick={closeMenu}
-                className="text-text-medium hover:text-text-dark text-base font-semibold border-2 border-transparent hover:border-text-dark p-2 rounded-lg transition-all text-center tracking-wide"
+                className="text-text-medium hover:text-text-dark text-base font-semibold border-2 border-transparent hover:border-text-dark hover:bg-white hover:-translate-y-0.5 hover:shadow-[2px_2px_0px_rgba(44,62,80,1)] p-2 rounded-lg transition-all text-center tracking-wide"
               >
                 {link.name}
               </a>
