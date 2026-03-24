@@ -6,7 +6,7 @@ const TerminalEasterEgg = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState('');
   const [history, setHistory] = useState([
-    { type: 'system', text: 'Welcome to the Developer Terminal v1.1.0 (Neo-Brutalism Edition)' },
+    { type: 'system', text: 'Welcome to the Developer Terminal v1.1.0' },
     { type: 'system', text: 'Type "help" for a list of available commands.' }
   ]);
   const endOfHistoryRef = useRef(null);
