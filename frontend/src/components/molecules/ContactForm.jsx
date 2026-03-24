@@ -48,7 +48,7 @@ const ContactForm = () => {
         name="name"
         value={formData.name}
         onChange={handleChange}
-        placeholder="John Doe"
+        placeholder="[YOUR_NAME]"
         required
       />
       <Input
@@ -57,7 +57,7 @@ const ContactForm = () => {
         name="email"
         value={formData.email}
         onChange={handleChange}
-        placeholder="john@example.com"
+        placeholder="[EMAIL_ADDRESS]"
         required
       />
       <Input
@@ -65,7 +65,7 @@ const ContactForm = () => {
         name="message"
         value={formData.message}
         onChange={handleChange}
-        placeholder="Let's work together!"
+        placeholder="[LETS_WORK_TOGETHER]"
         isTextArea
         required
       />
