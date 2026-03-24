@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Sun, Moon, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { useTheme } from '../../context/ThemeContext';
 import { AnimatePresence } from 'framer-motion';
 
@@ -61,10 +62,13 @@ const Navbar = () => {
 
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full hover:bg-gray-500/10 text-foreground transition-colors flex items-center justify-center"
+            className="rounded-full hover:bg-gray-500/10 text-foreground transition-colors flex items-center justify-center w-10 h-10 overflow-hidden"
             aria-label="Toggle theme"
           >
-            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+            <DotLottieReact
+              src="https://lottie.host/91f4257b-da41-4655-82d1-f2bf3749d931/bmxS8RWdQN.lottie"
+              stateMachineId="StateMachine1"
+            />
           </button>
         </div>
 
@@ -72,10 +76,13 @@ const Navbar = () => {
         <div className="md:hidden flex items-center gap-2">
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full hover:bg-gray-500/10 text-foreground transition-colors flex items-center justify-center"
+            className="rounded-full hover:bg-gray-500/10 text-foreground transition-colors flex items-center justify-center w-10 h-10 overflow-hidden"
             aria-label="Toggle theme"
           >
-            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+            <DotLottieReact
+              src="https://lottie.host/91f4257b-da41-4655-82d1-f2bf3749d931/bmxS8RWdQN.lottie"
+              stateMachineId="StateMachine1"
+            />
           </button>
           
           <button 
