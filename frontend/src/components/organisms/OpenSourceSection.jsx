@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { GitHubCalendar } from 'react-github-calendar';
-import api from '../../services/api';
 import { Star, GitFork, Code2 } from 'lucide-react';
-import { useTheme } from '../../context/ThemeContext';
 
 const OpenSourceSection = () => {
-  const { theme } = useTheme();
   const [repos, setRepos] = useState([]);
   const [leetCodeStats, setLeetCodeStats] = useState(null);
 
   useEffect(() => {
-    // Use curated repositories instead of live API fetch to ensure highest quality presentation
     const curatedRepos = [
       {
         id: 1,
@@ -19,18 +15,16 @@ const OpenSourceSection = () => {
         taxonomy: "AI Platform",
         description: "AI-powered disaster response tool for predicting floods using terrain data.",
         language: "JavaScript",
-        tech: ["React", "Firebase", "Gemini API"],
-        stargazers_count: "★",
+        tech: ["React", "Firebase", "Gemini"],
         html_url: "https://github.com/sarthakkaundal/PRAYAS"
       },
       {
         id: 2,
         name: "Linkro",
-        taxonomy: "Recruitment System",
-        description: "Full-stack recruitment platform featuring role-based dashboards and hiring workflows.",
+        taxonomy: "Recruitment",
+        description: "Full-stack recruitment platform featuring role-based dashboards.",
         language: "JavaScript",
         tech: ["MERN", "Tailwind", "JWT"],
-        stargazers_count: "★",
         html_url: "https://github.com/sarthakkaundal/linkro"
       },
       {
@@ -40,16 +34,14 @@ const OpenSourceSection = () => {
         description: "Inclusive job portal designed to facilitate employment under specific reservation policies.",
         language: "PHP",
         tech: ["HTML", "JS", "PHP"],
-        stargazers_count: "★",
         html_url: "https://github.com/arpitkumar08/Udyog-Saarthi"
       }
     ];
     setRepos(curatedRepos);
 
-    // Fetch LeetCode Stats
     const fetchLeetCode = async () => {
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 6000); // 6s timeout
+      const timeoutId = setTimeout(() => controller.abort(), 6000);
 
       try {
         const response = await fetch('https://leetcode-api-faisalshohag.vercel.app/saarthak_kaundal', {
@@ -73,150 +65,136 @@ const OpenSourceSection = () => {
   }, []);
 
   return (
-    <section id="opensource" className="py-24 px-6 max-w-6xl mx-auto w-full overflow-hidden">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="flex flex-col md:flex-row md:items-center gap-4 mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white break-words w-full">
-            <span className="text-neonBlue font-mono text-xl mr-2">03.</span> Coding Profiles & GitHub Activity
-          </h2>
-          <div className="hidden md:flex h-[1px] bg-white/10 flex-grow"></div>
+    <section id="opensource" className="py-24 px-6 max-w-6xl mx-auto w-full overflow-hidden relative z-10">
+      <div className="flex flex-col mb-12">
+        <h2 className="text-4xl font-black text-text-dark uppercase tracking-tight inline-block mb-3">
+          Coding Profiles & GitHub
+        </h2>
+        <div className="h-1 w-24 bg-accent-purple border border-text-dark"></div>
+      </div>
+
+      <div className="space-y-16">
+        {/* GitHub Heatmap */}
+        <div className="retro-card-large bg-white p-4 md:p-8 flex flex-col w-full overflow-hidden">
+          <h3 className="text-2xl font-black text-text-dark mb-6 self-start flex items-center gap-3 uppercase font-display border-b-4 border-text-dark pb-2">
+            <div className="bg-accent-teal p-1 border-2 border-text-dark"><Code2 className="text-white" size={24} /></div>
+            GitHub Contributions
+          </h3>
+          <div className="w-full overflow-x-auto pb-4 custom-scrollbar" style={{ direction: 'rtl' }}>
+            <div className="min-w-[800px] w-max mx-auto pr-4 sm:pr-0 flex justify-center" style={{ direction: 'ltr' }}>
+            <GitHubCalendar 
+              username="sarthakkaundal" 
+              colorScheme="light"
+              theme={{
+                light: ['#ebedf0', '#bae6fd', '#38bdf8', '#0ea5e9', '#0284c7']
+              }}
+            />
+          </div>
+          </div>
         </div>
 
-        <div className="space-y-16">
-          {/* GitHub Heatmap */}
-          <div className="glass p-4 md:p-8 rounded-2xl flex flex-col border-white/5 w-full overflow-hidden">
-            <h3 className="text-xl font-semibold text-white mb-6 self-start flex items-center gap-2">
-              <Code2 className="text-neonBlue" /> GitHub Contributions
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* Top Repositories */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-black text-text-dark mb-6 flex items-center gap-3 uppercase font-display border-b-4 border-text-dark pb-2 inline-flex">
+               <div className="bg-accent-gold p-1 border-2 border-text-dark"><Star className="text-text-dark" size={20} strokeWidth={3} /></div> 
+               Curated Showcase
             </h3>
-            <div className="w-full overflow-x-auto pb-4 custom-scrollbar" style={{ direction: 'rtl' }}>
-              <div className="min-w-[800px] w-max mx-auto pr-4 sm:pr-0 flex justify-center" style={{ direction: 'ltr' }}>
-              <GitHubCalendar 
-                username="sarthakkaundal" 
-                colorScheme={theme === 'dark' ? 'dark' : 'light'}
-                theme={{
-                  light: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'],
-                  dark: ['#12121c', '#00f3ff40', '#00f3ff80', '#00f3ffc0', '#00f3ff']
-                }}
-              />
-            </div>
+            <div className="grid grid-cols-1 gap-4">
+              {repos.map((repo, idx) => (
+                <a 
+                  key={repo.id} 
+                  href={repo.html_url} 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className={`retro-card p-5 group flex flex-col justify-between ${idx % 2 === 0 ? 'bg-primary-cream' : 'bg-white'}`}
+                >
+                  <div>
+                    <div className="flex justify-between items-start mb-3">
+                      <div>
+                        <h4 className="text-text-dark font-black text-xl leading-tight mb-2 underline decoration-transparent group-hover:decoration-text-dark transition-colors">{repo.name}</h4>
+                        <span className="inline-block px-2 py-0.5 text-xs font-bold uppercase tracking-wider bg-accent-purple text-white border-2 border-text-dark shadow-[1px_1px_0_var(--text-dark)]">{repo.taxonomy}</span>
+                      </div>
+                      <span className="retro-icon bg-white text-text-dark group-hover:bg-accent-teal group-hover:text-white transition-colors"><GitFork size={16} strokeWidth={3} /></span>
+                    </div>
+                    <p className="text-text-medium text-sm mb-4 leading-relaxed font-medium">{repo.description}</p>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-2 mt-auto">
+                    {repo.tech.map((t, i) => (
+                      <span key={i} className="text-xs font-bold font-display px-2 py-0.5 border-2 border-text-dark text-text-dark bg-white shadow-[1px_1px_0_var(--text-dark)]">{t}</span>
+                    ))}
+                  </div>
+                </a>
+              ))}
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Top Repositories */}
-            <div className="space-y-4">
-               <h3 className="text-xl font-semibold text-white mb-6 flex items-center gap-2">
-                 <Star className="text-electricPurple" size={20} /> Curated Showcase
-               </h3>
-               <div className="grid grid-cols-1 gap-4">
-                 {repos.map(repo => (
-                   <a 
-                     key={repo.id} 
-                     href={repo.html_url} 
-                     target="_blank" 
-                     rel="noreferrer"
-                     className="glass p-5 rounded-xl border border-white/5 hover:border-electricPurple/50 hover:bg-white/[0.03] transition-all group flex flex-col justify-between"
-                   >
-                     <div>
-                       <div className="flex justify-between items-start mb-3">
-                         <div>
-                           <h4 className="text-neonBlue font-semibold text-lg group-hover:text-electricPurple transition-colors leading-tight mb-1.5">{repo.name}</h4>
-                           <span className="inline-block px-2 py-0.5 rounded text-[9px] uppercase tracking-wider bg-electricPurple/10 text-electricPurple border border-electricPurple/20 font-mono">{repo.taxonomy}</span>
-                         </div>
-                         <span className="text-gray-500 hover:text-white transition-colors mt-1"><GitFork size={16} /></span>
-                       </div>
-                       <p className="text-gray-400 text-sm mb-4 leading-relaxed font-light">{repo.description}</p>
-                     </div>
-                     <div className="flex flex-wrap items-center gap-2 mt-auto">
-                       {repo.tech.map((t, i) => (
-                         <span key={i} className="text-[10px] bg-white/5 border border-white/10 px-2 py-0.5 rounded font-mono text-gray-400">{t}</span>
-                       ))}
-                     </div>
-                   </a>
-                 ))}
-               </div>
+          {/* LeetCode Stats */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-black text-text-dark mb-6 flex items-center gap-3 uppercase font-display border-b-4 border-text-dark pb-2 inline-flex">
+              <div className="bg-accent-blue p-1 border-2 border-text-dark"><Code2 className="text-white" size={20} strokeWidth={3} /></div> 
+              Competitive Profiles
+            </h3>
+            
+            {/* HackerRank Proof Card */}
+            <div className="retro-card p-5 bg-white mb-4 flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-accent-gold border-2 border-text-dark shadow-[2px_2px_0_var(--text-dark)] flex items-center justify-center text-text-dark font-black text-xl">
+                  ★
+                </div>
+                <div>
+                  <p className="text-text-dark font-black flex items-center gap-2 text-lg">HackerRank <span className="text-xs px-2 py-0.5 bg-primary-cream border-2 border-text-dark shadow-[1px_1px_0_var(--text-dark)] uppercase">Java</span></p>
+                  <p className="text-sm text-text-medium font-bold uppercase tracking-widest mt-1">3★ Silver Badge</p>
+                </div>
+              </div>
             </div>
 
-            {/* LeetCode Stats */}
-            <div className="space-y-4">
-               <h3 className="text-xl font-semibold text-white mb-6 flex items-center gap-2">
-                  <Code2 className="text-[#00f0ff]" size={20} /> Competitive Profiles
-               </h3>
-               
-               {/* HackerRank Proof Card */}
-               <div className="glass p-5 rounded-xl border border-white/5 bg-electricPurple/10 mb-4 flex items-center justify-between group hover:border-white/10 transition-colors">
-                  <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-full bg-electricPurple/20 flex items-center justify-center text-electricPurple border border-electricPurple/30">
-                      ★
+            {leetCodeStats ? (
+              leetCodeStats.error ? (
+                <div className="retro-card p-6 min-h-[280px] flex flex-col items-center justify-center text-center bg-accent-coral text-white">
+                  <p className="font-black text-xl mb-2">Failed to load statistics.</p>
+                  <p className="text-white/80 text-sm font-medium">The API might be rate-limited.</p>
+                  <a href="https://leetcode.com/u/saarthak_kaundal/" target="_blank" rel="noreferrer" className="mt-6 btn-retro-outline bg-white !text-text-dark">View Profile</a>
+                </div>
+              ) : (
+                <div className="retro-card-large p-6 flex flex-col items-center justify-center min-h-[280px] relative overflow-hidden bg-white">
+                  <div className="z-10 relative flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 w-full py-4">
+                    <div className="relative w-32 h-32 flex items-center justify-center bg-primary-cream rounded-full border-4 border-text-dark shadow-[4px_4px_0_var(--text-dark)]">
+                      <div className="absolute flex flex-col items-center justify-center">
+                        <span className="text-4xl font-black text-text-dark">{leetCodeStats.totalSolved}</span>
+                        <span className="text-xs font-bold uppercase font-display tracking-widest text-text-medium">Solved</span>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-white font-semibold flex items-center gap-2">HackerRank <span className="text-[10px] px-2 py-0.5 bg-gray-500/20 rounded-full text-gray-400">Java</span></p>
-                      <p className="text-sm text-electricPurple font-medium">3★ Silver Badge</p>
+                    
+                    <div className="flex flex-col gap-4 w-full sm:flex-1 max-w-[200px] mt-2 sm:mt-0">
+                      <div className="flex items-center justify-between border-b-2 border-text-dark pb-1">
+                        <span className="text-accent-green font-black uppercase text-sm">Easy</span>
+                        <span className="text-text-dark font-bold bg-primary-cream px-2 py-0.5 border-2 border-text-dark">{leetCodeStats.easySolved}</span>
+                      </div>
+                      <div className="flex items-center justify-between border-b-2 border-text-dark pb-1">
+                        <span className="text-accent-gold font-black uppercase text-sm">Med</span>
+                        <span className="text-text-dark font-bold bg-primary-cream px-2 py-0.5 border-2 border-text-dark">{leetCodeStats.mediumSolved}</span>
+                      </div>
+                      <div className="flex items-center justify-between border-b-2 border-text-dark pb-1">
+                        <span className="text-accent-coral font-black uppercase text-sm">Hard</span>
+                        <span className="text-text-dark font-bold bg-primary-cream px-2 py-0.5 border-2 border-text-dark">{leetCodeStats.hardSolved}</span>
+                      </div>
                     </div>
                   </div>
-               </div>
 
-               {leetCodeStats ? (
-                  leetCodeStats.error ? (
-                    <div className="glass p-6 rounded-xl border border-red-500/20 min-h-[280px] flex flex-col items-center justify-center text-center">
-                      <p className="text-red-400 mb-2">Failed to load LeetCode statistics.</p>
-                      <p className="text-gray-500 text-sm">The API might be heavily rate-limited.</p>
-                      <a href="https://leetcode.com/u/saarthak_kaundal/" target="_blank" rel="noreferrer" className="mt-6 px-4 py-2 border border-white/10 rounded-md hover:bg-white/5 transition-colors text-sm">View Profile Directly</a>
-                    </div>
-                  ) : (
-                    <div className="glass p-6 rounded-xl border border-white/5 flex flex-col items-center justify-center min-h-[280px] relative overflow-hidden group hover:border-white/10 transition-colors">
-                      <div className="z-10 relative flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 w-full py-4">
-                        <div className="relative w-32 h-32 flex items-center justify-center">
-                          <svg className="w-full h-full transform -rotate-90 drop-shadow-[0_0_8px_rgba(0,240,255,0.4)]" viewBox="0 0 100 100">
-                            <circle cx="50" cy="50" r="45" fill="none" stroke="#12121c" strokeWidth="8" />
-                            <circle 
-                              cx="50" cy="50" r="45" fill="none" 
-                              stroke="#00f0ff" strokeWidth="8" strokeLinecap="round"
-                              strokeDasharray={`${(leetCodeStats.totalSolved / leetCodeStats.totalQuestions) * 283} 283`}
-                              className="transition-all duration-1000 ease-out"
-                            />
-                          </svg>
-                          <div className="absolute flex flex-col items-center justify-center">
-                            <span className="text-3xl font-extrabold text-white">{leetCodeStats.totalSolved}</span>
-                            <span className="text-[10px] uppercase font-mono tracking-wider text-neonBlue">Solved</span>
-                          </div>
-                        </div>
-                        
-                        <div className="flex flex-col gap-3 w-full sm:flex-1 max-w-[200px] mt-2 sm:mt-0">
-                          <div className="flex items-center justify-between text-sm">
-                            <span className="text-green-500 font-medium">Easy</span>
-                            <span className="text-white font-mono">{leetCodeStats.easySolved}</span>
-                          </div>
-                          <div className="flex items-center justify-between text-sm">
-                            <span className="text-yellow-500 font-medium">Med</span>
-                            <span className="text-white font-mono">{leetCodeStats.mediumSolved}</span>
-                          </div>
-                          <div className="flex items-center justify-between text-sm">
-                            <span className="text-red-500 font-medium">Hard</span>
-                            <span className="text-white font-mono">{leetCodeStats.hardSolved}</span>
-                          </div>
-                        </div>
-                      </div>
-
-                      <a href="https://leetcode.com/u/saarthak_kaundal/" target="_blank" rel="noreferrer" className="absolute bottom-4 right-5 text-gray-500 text-xs hover:text-neonBlue transition-colors flex items-center gap-1">
-                        View Profile <span className="text-base leading-none">↗</span>
-                      </a>
-                    </div>
-                  )
-               ) : (
-                 <div className="glass p-6 rounded-lg border border-white/5 min-h-[350px] flex items-center justify-center">
-                   <div className="w-8 h-8 rounded-full border-4 border-white/20 border-t-electricPurple animate-spin"></div>
-                 </div>
-               )}
-            </div>
+                  <a href="https://leetcode.com/u/saarthak_kaundal/" target="_blank" rel="noreferrer" className="absolute bottom-4 right-5 text-text-dark font-bold text-xs hover:text-accent-blue transition-colors flex items-center gap-1 uppercase tracking-widest">
+                    View Profile <span className="text-lg leading-none mt-[-2px]">↗</span>
+                  </a>
+                </div>
+              )
+            ) : (
+              <div className="retro-card p-6 min-h-[280px] flex items-center justify-center bg-white">
+                <div className="w-12 h-12 border-4 border-text-dark border-t-accent-teal animate-spin rounded-full"></div>
+              </div>
+            )}
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };

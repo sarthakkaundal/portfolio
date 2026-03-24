@@ -34,11 +34,11 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="p-8 lg:p-12 flex flex-col gap-6 w-full max-w-xl mx-auto">
-      <h3 className="text-3xl font-extrabold text-foreground mb-2">Send a Message</h3>
+    <form onSubmit={handleSubmit} className="retro-card-large bg-white p-8 lg:p-12 flex flex-col gap-6 w-full max-w-xl mx-auto shadow-[8px_8px_0_var(--text-dark)]">
+      <h3 className="text-3xl font-black font-display uppercase tracking-tight text-text-dark border-b-4 border-text-dark pb-3 inline-block self-start mb-2">Send a Message</h3>
       
       {status.message && (
-        <div className={`p-4 rounded-lg text-sm ${status.type === 'success' ? 'bg-green-500/20 text-green-300 border border-green-500/30' : 'bg-red-500/20 text-red-300 border border-red-500/30'}`}>
+        <div className={`p-4 rounded-xl border-2 font-bold font-display ${status.type === 'success' ? 'bg-accent-green text-white border-text-dark shadow-[2px_2px_0_var(--text-dark)]' : 'bg-accent-coral text-white border-text-dark shadow-[2px_2px_0_var(--text-dark)]'}`}>
           {status.message}
         </div>
       )}
@@ -70,10 +70,10 @@ const ContactForm = () => {
         required
       />
       
-      <Button type="submit" variant="primary" disabled={loading} className="mt-4">
+      <Button type="submit" variant="primary" disabled={loading} className="mt-4 w-full text-lg justify-center py-4 bg-accent-blue font-black border-[3px]">
         {loading ? 'Sending...' : (
           <>
-            Send Message <Send size={18} />
+            Send Message <Send size={20} className="ml-2" />
           </>
         )}
       </Button>

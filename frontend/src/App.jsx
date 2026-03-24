@@ -7,11 +7,13 @@ function App() {
   const { scrollYProgress } = useScroll();
 
   return (
-    <div className="min-h-screen bg-background text-white selection:bg-neonBlue selection:text-darkGray overflow-x-hidden">
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-neonBlue z-[100] origin-left"
-        style={{ scaleX: scrollYProgress }}
-      />
+    <div className="min-h-screen bg-primary-cream text-text-dark selection:bg-accent-teal selection:text-white overflow-x-hidden relative">
+      <div className="fixed top-0 left-0 right-0 h-2 bg-text-dark z-[100] origin-left border-b-2 border-text-dark">
+        <motion.div
+          className="h-full bg-accent-teal w-full origin-left"
+          style={{ scaleX: scrollYProgress }}
+        />
+      </div>
       <CustomCursor />
       <TerminalEasterEgg />
       <Home />

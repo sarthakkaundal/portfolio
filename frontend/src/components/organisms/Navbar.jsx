@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
-import { useTheme } from '../../context/ThemeContext';
-import { AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
 
   const closeMenu = () => setIsOpen(false);
 
@@ -28,17 +23,14 @@ const Navbar = () => {
   ];
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+    <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-background/80 backdrop-blur-md border-b border-glassBorder shadow-lg' : 'bg-transparent'
+        scrolled ? 'bg-primary-cream border-b-4 border-text-dark shadow-retro' : 'bg-primary-cream'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="#" className="text-2xl font-bold text-foreground hover:text-neonBlue transition-colors tracking-tighter">
-          SK<span className="text-neonBlue">.</span>
+        <a href="#" className="font-display font-bold text-2xl text-text-dark hover:text-accent-teal transition-colors tracking-tighter">
+          SK<span className="text-accent-teal">.</span>
         </a>
 
         <div className="hidden md:flex gap-8 items-center">
@@ -46,48 +38,26 @@ const Navbar = () => {
             <a
               key={idx}
               href={link.href}
-              className="text-lightGray hover:text-foreground hover:text-glow transition-all text-sm font-medium"
+              className="text-text-medium hover:text-text-dark hover:text-accent-teal transition-all text-sm font-semibold uppercase tracking-wide"
             >
-              <span className="text-electricPurple mr-1">0{idx + 1}.</span> {link.name}
+              {link.name}
             </a>
           ))}
 
           <a
             href="/Resume.pdf"
             target="_blank"
-            className="px-4 py-2 text-sm text-neonBlue border border-neonBlue rounded-md hover:bg-neonBlue/10 transition-colors"
+            className="btn-retro-outline"
           >
             Resume
           </a>
-
-          <button
-            onClick={toggleTheme}
-            className="rounded-full hover:bg-gray-500/10 text-foreground transition-colors flex items-center justify-center w-10 h-10 overflow-hidden"
-            aria-label="Toggle theme"
-          >
-            <DotLottieReact
-              src="https://lottie.host/91f4257b-da41-4655-82d1-f2bf3749d931/bmxS8RWdQN.lottie"
-              stateMachineId="StateMachine1"
-            />
-          </button>
         </div>
 
-        {/* Mobile Menu Toggle & Theme Button */}
+        {/* Mobile Menu Toggle */}
         <div className="md:hidden flex items-center gap-2">
-          <button
-            onClick={toggleTheme}
-            className="rounded-full hover:bg-gray-500/10 text-foreground transition-colors flex items-center justify-center w-10 h-10 overflow-hidden"
-            aria-label="Toggle theme"
-          >
-            <DotLottieReact
-              src="https://lottie.host/91f4257b-da41-4655-82d1-f2bf3749d931/bmxS8RWdQN.lottie"
-              stateMachineId="StateMachine1"
-            />
-          </button>
-          
           <button 
             onClick={() => setIsOpen(!isOpen)} 
-            className="text-foreground p-2 focus:outline-none flex items-center justify-center rounded-full hover:bg-gray-500/10 transition-colors"
+            className="retro-icon focus:outline-none"
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -96,39 +66,31 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Layout Dropdown Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="absolute top-full left-0 w-full bg-background/95 backdrop-blur-xl border-b border-white/5 shadow-2xl flex flex-col md:hidden overflow-hidden"
-          >
-            <div className="px-6 py-8 flex flex-col gap-6">
-              {navLinks.map((link, idx) => (
-                <a
-                  key={idx}
-                  href={link.href}
-                  onClick={closeMenu}
-                  className="text-lightGray hover:text-foreground hover:text-glow transition-all text-base font-medium flex items-center tracking-wide"
-                >
-                  <span className="text-electricPurple mr-4 font-mono text-sm leading-none">0{idx + 1}.</span> {link.name}
-                </a>
-              ))}
+      {isOpen && (
+        <div className="absolute top-full left-0 w-full bg-primary-cream border-b-4 border-text-dark shadow-retro flex flex-col md:hidden overflow-hidden">
+          <div className="px-6 py-8 flex flex-col gap-6">
+            {navLinks.map((link, idx) => (
               <a
-                href="/Resume.pdf"
-                target="_blank"
+                key={idx}
+                href={link.href}
                 onClick={closeMenu}
-                className="mt-2 w-[max-content] px-8 py-3 text-sm text-neonBlue border border-neonBlue rounded-md hover:bg-neonBlue/10 transition-colors text-center"
+                className="text-text-medium hover:text-text-dark text-base font-semibold border-2 border-transparent hover:border-text-dark p-2 rounded-lg transition-all text-center tracking-wide"
               >
-                Resume
+                {link.name}
               </a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.nav>
+            ))}
+            <a
+              href="/Resume.pdf"
+              target="_blank"
+              onClick={closeMenu}
+              className="mt-2 text-center btn-retro-primary w-full justify-center"
+            >
+              Resume
+            </a>
+          </div>
+        </div>
+      )}
+    </nav>
   );
 };
 

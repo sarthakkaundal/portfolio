@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import SkillCard from '../molecules/SkillCard';
 import { Database, Server, Code, Layout, GitBranch, Cpu, Container, Hexagon, Component, Braces } from 'lucide-react';
 
@@ -25,22 +24,21 @@ const SkillsSection = () => {
     { name: 'Git & GitHub', icon: GitBranch },
   ];
 
-  const SkillCategory = ({ title, skills, delayOffset, isCore }) => (
-    <div className={`mb-10 ${isCore ? 'p-6 md:p-8 rounded-2xl glass border-neonBlue/20 shadow-[0_0_30px_rgba(0,240,255,0.03)]' : ''}`}>
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-2">
-        <h3 className={`font-mono uppercase tracking-widest ${isCore ? 'text-neonBlue text-sm font-semibold flex items-center gap-2' : 'text-gray-500 text-xs'}`}>
-          {isCore && <div className="w-2 h-2 rounded-full bg-neonBlue animate-pulse"></div>}
+  const SkillCategory = ({ title, skills, isCore, colorClass }) => (
+    <div className={`mb-10 ${isCore ? 'p-6 md:p-8 rounded-2xl retro-card-large bg-primary-cream border-4 border-text-dark' : 'p-6 retro-card bg-white'}`}>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-2 border-b-2 border-text-dark pb-3">
+        <h3 className={`font-display font-bold uppercase tracking-widest text-text-dark flex items-center gap-2`}>
+          {isCore && <div className={`w-3 h-3 rounded-full border-2 border-text-dark shadow-[1px_1px_0_var(--text-dark)] ${colorClass || 'bg-accent-teal'}`}></div>}
           {title}
         </h3>
-        {isCore && <span className="text-[10px] sm:text-xs text-gray-500 font-mono font-light tracking-wide">Primary stack used for full-stack development</span>}
+        {isCore && <span className="text-sm text-text-medium font-bold bg-white px-2 border-2 border-text-dark rounded-md shadow-[2px_2px_0_var(--text-dark)]">Primary Stack</span>}
       </div>
-      <div className={`grid gap-4 ${isCore ? 'grid-cols-2 md:grid-cols-3 lg:grid-cols-6' : 'grid-cols-2 md:grid-cols-3'}`}>
+      <div className={`grid gap-4 ${isCore ? 'grid-cols-2 md:grid-cols-3 lg:grid-cols-6' : 'grid-cols-2 lg:grid-cols-3'}`}>
         {skills.map((skill, index) => (
           <SkillCard
             key={skill.name}
             name={skill.name}
             icon={skill.icon}
-            delay={delayOffset + index * 0.1}
           />
         ))}
       </div>
@@ -48,31 +46,22 @@ const SkillsSection = () => {
   );
 
   return (
-    <section id="skills" className="py-24 px-6 max-w-5xl mx-auto relative">
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-electricPurple/10 rounded-full blur-[100px] -z-10" />
+    <section id="skills" className="py-24 px-6 max-w-5xl mx-auto relative z-10">
+      <div className="flex flex-col mb-12">
+        <h2 className="text-4xl font-black text-text-dark uppercase tracking-tight inline-block mb-3">
+          Technical Arsenal
+        </h2>
+        <div className="h-1 w-24 bg-accent-coral border border-text-dark"></div>
+      </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="flex items-center gap-4 mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
-            <span className="text-neonBlue font-mono text-xl mr-2">02.</span> Technical Arsenal
-          </h2>
-          <div className="h-[1px] bg-white/10 flex-grow"></div>
+      <div className="space-y-8">
+        <SkillCategory title="Core Stack" skills={coreSkills} isCore={true} colorClass="bg-accent-teal" />
+        
+        <div className="grid md:grid-cols-2 gap-8">
+          <SkillCategory title="Languages" skills={languageSkills} colorClass="bg-accent-gold" />
+          <SkillCategory title="Data & Dev Tools" skills={toolsSkills} colorClass="bg-accent-purple" />
         </div>
-
-        <div className="space-y-4">
-          <SkillCategory title="Core Stack" skills={coreSkills} delayOffset={0.1} isCore={true} />
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            <SkillCategory title="Languages" skills={languageSkills} delayOffset={0.3} />
-            <SkillCategory title="Data & Dev Tools" skills={toolsSkills} delayOffset={0.5} />
-          </div>
-        </div>
-      </motion.div>
+      </div>
     </section>
   );
 };

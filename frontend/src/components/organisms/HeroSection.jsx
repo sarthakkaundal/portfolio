@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import Button from '../atoms/Button';
-import MagneticWrapper from '../atoms/MagneticWrapper';
 
 const ROLES = [
   "Building scalable web apps.",
@@ -19,114 +17,61 @@ const HeroSection = () => {
     }, 4500);
     return () => clearInterval(interval);
   }, []);
-  return (
-    <section className="min-h-screen flex flex-col justify-center relative pt-20 px-6 max-w-7xl mx-auto">
-      <div className="absolute top-1/3 right-10 w-72 h-72 bg-electricPurple/20 rounded-full blur-[100px] -z-10" />
-      <div className="absolute bottom-1/4 left-10 w-96 h-96 bg-neonBlue/20 rounded-full blur-[120px] -z-10" />
 
-      <div className="grid md:grid-cols-2 gap-12 items-center">
+  return (
+    <section className="min-h-screen flex flex-col justify-center relative pt-20 px-6 max-w-7xl mx-auto overflow-hidden">
+      <div className="retro-bg-pattern"></div>
+      
+      <div className="grid md:grid-cols-2 gap-12 items-center relative z-10 w-full">
         <div className="space-y-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex items-center gap-3"
-          >
-            <div className="h-[1px] w-8 bg-neonBlue"></div>
-            <span className="text-neonBlue font-mono font-semibold tracking-widest uppercase text-sm">
+          <div className="flex items-center gap-3">
+            <div className="h-1 w-8 bg-text-dark"></div>
+            <span className="text-accent-teal font-display font-bold tracking-widest uppercase text-sm">
               Hello, World! I am
             </span>
-          </motion.div>
+          </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-6xl md:text-[5.5rem] font-extrabold text-foreground tracking-tighter leading-tight"
-          >
+          <h1 className="text-6xl md:text-[5.5rem] font-black text-text-dark tracking-tighter leading-tight drop-shadow-sm">
             Sarthak Kaundal.
-          </motion.h1>
+          </h1>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-col gap-2 mb-6"
-          >
-            <span className="text-3xl md:text-5xl font-bold text-white">MERN Developer.</span>
-            <div className="relative h-10 md:h-12 w-full overflow-hidden">
-              <AnimatePresence mode="popLayout">
-                <motion.span
-                  key={roleIndex}
-                  initial={{ y: 40, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -40, opacity: 0 }}
-                  transition={{ duration: 0.6, type: 'spring', stiffness: 80 }}
-                  className="absolute top-0 left-0 text-neonBlue whitespace-nowrap text-xl md:text-3xl font-bold"
-                >
-                  {ROLES[roleIndex]}
-                </motion.span>
-              </AnimatePresence>
+          <div className="flex flex-col gap-2 mb-6">
+            <span className="text-3xl md:text-5xl font-bold text-text-dark">MERN Developer.</span>
+            <div className="h-10 md:h-12 w-full overflow-hidden text-accent-teal font-display text-2xl font-bold">
+               {ROLES[roleIndex]}
             </div>
-          </motion.div>
+          </div>
 
           {/* Credibility / Proof Strip */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-wrap gap-3 mb-2"
-          >
-            <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-[11px] sm:text-xs font-mono text-gray-300 flex items-center gap-2 shadow-[0_0_10px_rgba(0,0,0,0.5)]"><div className="w-1.5 h-1.5 rounded-full bg-neonBlue animate-pulse"></div> 8.39 CGPA</span>
-            <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-[11px] sm:text-xs font-mono text-gray-300 flex items-center gap-2 shadow-[0_0_10px_rgba(0,0,0,0.5)]"><div className="w-1.5 h-1.5 rounded-full bg-electricPurple animate-pulse"></div> 3★ HackerRank</span>
-            <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-[11px] sm:text-xs font-mono text-gray-300 flex items-center gap-2 shadow-[0_0_10px_rgba(0,0,0,0.5)]"><div className="w-1.5 h-1.5 rounded-full bg-[#00f0ff] animate-pulse"></div> Full-Stack Focus</span>
-          </motion.div>
+          <div className="flex flex-wrap gap-3 mb-2">
+            <span className="retro-tag retro-tag-outline border-2 border-text-dark">8.39 CGPA</span>
+            <span className="retro-tag retro-tag-teal border-2 border-text-dark">100+ LeetCode Problems Solved</span>
+            <span className="retro-tag retro-tag-purple border-2 border-text-dark">Full-Stack Focus</span>
+          </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-base md:text-lg text-gray-400 max-w-xl leading-relaxed font-light mb-8"
-          >
+          <p className="text-base md:text-lg text-text-medium max-w-xl leading-relaxed font-medium mb-8">
             I build full-stack applications that combine clean user experiences, solid backend systems, and practical problem-solving.
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="flex flex-wrap items-center gap-5 pt-2"
-          >
-            <MagneticWrapper>
-              <Button variant="primary" onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}>
-                Explore Projects
-              </Button>
-            </MagneticWrapper>
-            <MagneticWrapper>
-              <Button variant="secondary" onClick={() => window.open('/Resume.pdf', '_blank')}>
-                Download Resume
-              </Button>
-            </MagneticWrapper>
-            <a href="https://github.com/sarthakkaundal" target="_blank" rel="noreferrer" className="px-5 py-2.5 rounded-full border border-white/10 text-sm font-mono text-gray-400 hover:border-neonBlue hover:text-neonBlue transition-all md:ml-3 flex items-center gap-2 group bg-white/5 backdrop-blur-md">
-              GitHub <span className="text-lg leading-none group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+          <div className="flex flex-wrap items-center gap-5 pt-2">
+            <Button variant="primary" onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}>
+              Explore Projects
+            </Button>
+            <Button variant="secondary" onClick={() => window.open('/Resume.pdf', '_blank')}>
+              Download Resume
+            </Button>
+            <a href="https://github.com/sarthakkaundal" target="_blank" rel="noreferrer" className="px-5 py-2.5 rounded-xl border-3 border-text-dark font-display font-bold text-text-dark transition-all md:ml-3 flex items-center gap-2 bg-white flex-shrink-0" style={{ border: '3px solid var(--text-dark)', boxShadow: '4px 4px 0 var(--text-dark)' }}>
+              GitHub <span className="text-lg leading-none">↗</span>
             </a>
-          </motion.div>
+          </div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="relative flex justify-center mt-12 md:mt-0 w-full"
-        >
-          <div className="w-72 h-72 md:w-96 md:h-96 rounded-2xl border-2 border-neonBlue relative z-10 p-2 object-cover overflow-hidden transition-all hover:border-electricPurple shadow-2xl group">
-             {/* Profile image Placeholder implementation. User should replace /profile.jpg with their actual image */}
-            <div className="w-full h-full bg-darkGray rounded-xl absolute inset-0 z-20 flex items-center justify-center -translate-x-[10px] -translate-y-[10px] group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-300 border border-white/10 overflow-hidden">
-               <img src="/profile.jpeg" alt="Sarthak Kaundal" className="w-full h-full object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal hover:opacity-100 transition-all duration-500" />
-            </div>
-            <div className="absolute inset-0 bg-neonBlue/10 z-0 rounded-2xl"></div>
+        <div className="relative flex justify-center mt-12 md:mt-0 w-full">
+          {/* Profile image container replacing glowing Lottie */}
+          <div className="retro-card-large w-72 h-72 md:w-96 md:h-96 p-2 bg-[#ffddaa] flex items-center justify-center transform hover:-rotate-2 transition-transform duration-300">
+            <img src="/profile.jpeg" alt="Sarthak Kaundal" className="w-full h-full object-cover rounded-xl border-4 border-text-dark" />
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -1,118 +1,99 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 const AboutMe = () => {
   return (
-    <section id="about" className="py-24 px-6 max-w-5xl mx-auto">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="flex items-center gap-4 mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
-            <span className="text-electricPurple font-mono text-xl mr-2">01.</span> About Me
-          </h2>
-          <div className="h-[1px] bg-white/10 flex-grow"></div>
+    <section id="about" className="py-24 px-6 max-w-5xl mx-auto relative z-10">
+      <div className="flex flex-col mb-12">
+        <h2 className="text-4xl font-black text-text-dark uppercase tracking-tight inline-block mb-3">
+          About Me
+        </h2>
+        <div className="h-1 w-24 bg-accent-teal border border-text-dark"></div>
+      </div>
+
+      <div className="grid md:grid-cols-5 gap-12">
+        <div className="md:col-span-3 text-text-medium space-y-6 text-base md:text-lg relative">
+          <p className="leading-relaxed font-medium">
+            Hello! I'm Sarthak, a <span className="text-text-dark font-bold underline decoration-accent-teal decoration-4">MERN stack developer</span> and competitive programmer. I bridge the gap between algorithmic problem-solving and building robust, real-world software applications.
+          </p>
+          
+          <ul className="space-y-4 font-medium mt-6">
+            <li className="flex items-start gap-3">
+              <span className="text-accent-teal mt-1 text-xl font-bold">»</span>
+              <span className="leading-relaxed">Focusing heavily on <span className="text-text-dark font-bold">scalable backend systems</span> and interactive frontends.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-accent-coral mt-1 text-xl font-bold">»</span>
+              <span className="leading-relaxed">Applying competitive programming logic and data structures to design highly efficient architectures.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-accent-gold mt-1 text-xl font-bold">»</span>
+              <span className="leading-relaxed">Exploring modern tools and AI integrations to build more useful and scalable applications.</span>
+            </li>
+          </ul>
+
+          <div className="mt-8">
+            <div className="retro-card bg-primary-cream p-4 flex flex-col sm:flex-row sm:items-center gap-4">
+              <div className="flex items-center gap-2 text-text-dark font-display font-bold text-sm tracking-tight whitespace-nowrap bg-white px-3 py-1 border-2 border-text-dark rounded-md shadow-[2px_2px_0_var(--text-dark)]">
+                <div className="w-3 h-3 rounded-full bg-accent-green animate-pulse border border-text-dark" />
+                SYSTEM STATUS
+              </div>
+              <p className="text-sm text-text-medium leading-snug font-medium">
+                Pursuing BTech CS. Actively seeking <span className="text-text-dark font-bold">software engineering roles</span>.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-5 gap-12">
-          <div className="md:col-span-3 text-gray-400 space-y-6 text-base md:text-lg relative">
-            <p className="leading-relaxed">
-              Hello! I'm Sarthak, a <span className="text-white font-medium">MERN stack developer</span> and competitive programmer. I bridge the gap between algorithmic problem-solving and building robust, real-world software applications.
-            </p>
+        <div className="md:col-span-2 space-y-6">
+          <div className="retro-card p-6 bg-white">
+            <h3 className="text-sm font-display font-bold uppercase tracking-widest text-text-dark mb-4 border-b-2 border-text-dark pb-2 inline-block">Education</h3>
             
-            <ul className="space-y-4 font-light mt-6">
-              <li className="flex items-start gap-3 group">
-                <span className="text-neonBlue mt-[5px] text-xs transition-transform group-hover:scale-125 group-hover:text-white">▹</span>
-                <span className="leading-relaxed">Focusing heavily on <span className="text-white font-medium">scalable backend systems</span> and interactive frontends.</span>
+            <div className="space-y-6 pt-2">
+              <div>
+                <p className="text-lg font-bold text-text-dark mb-1">BTech Computer Science</p>
+                <p className="text-text-medium text-sm mb-3 font-medium">Lovely Professional University</p>
+                <div className="retro-tag retro-tag-teal border-gray-900 border-2">
+                  CGPA: 8.39
+                </div>
+              </div>
+
+              <div className="w-full h-0.5 bg-text-dark"></div>
+
+              <div>
+                <p className="text-lg font-bold text-text-dark mb-1">Class 12th</p>
+                <p className="text-text-medium text-sm mb-3">CBSE Board</p>
+                <div className="retro-tag retro-tag-coral border-gray-900 border-2">
+                  Percentage: 86%
+                </div>
+              </div>
+
+              <div className="w-full h-0.5 bg-text-dark"></div>
+
+              <div>
+                <p className="text-lg font-bold text-text-dark mb-1">Class 10th</p>
+                <p className="text-text-medium text-sm mb-3">CBSE Board</p>
+                <div className="retro-tag retro-tag-blue border-gray-900 border-2">
+                  Percentage: 95%
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="retro-card p-6 bg-primary-cream">
+            <h3 className="text-sm font-display font-bold uppercase tracking-widest text-text-dark mb-4 border-b-2 border-text-dark pb-2 inline-block">Key Highlights</h3>
+            <ul className="text-text-dark font-medium text-sm space-y-4">
+              <li className="flex items-center gap-3">
+                <span className="retro-icon font-display font-bold text-lg bg-white">2nd</span>
+                <span className="leading-snug">Position — Group Discussion</span>
               </li>
-              <li className="flex items-start gap-3 group">
-                <span className="text-electricPurple mt-[5px] text-xs transition-transform group-hover:scale-125 group-hover:text-white">▹</span>
-                <span className="leading-relaxed">Applying competitive programming logic and data structures to design highly efficient architectures.</span>
-              </li>
-              <li className="flex items-start gap-3 group">
-                <span className="text-neonBlue mt-[5px] text-xs transition-transform group-hover:scale-125 group-hover:text-white">▹</span>
-                <span className="leading-relaxed">Exploring modern tools and AI integrations to build more useful and scalable applications.</span>
+              <li className="flex items-center gap-3">
+                <span className="retro-icon font-display font-bold text-lg bg-accent-gold text-white">3★</span>
+                <span className="leading-snug">Silver Badge HackerRank</span>
               </li>
             </ul>
-
-            <div className="mt-8">
-              <div className="inline-flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 p-4 rounded-lg bg-electricPurple/5 border border-electricPurple/10 w-full relative overflow-hidden group">
-                <div className="absolute left-0 top-0 h-full w-[2px] bg-electricPurple/50"></div>
-                <div className="flex items-center gap-2 text-white font-mono text-sm tracking-tight whitespace-nowrap">
-                  <div className="w-2 h-2 rounded-full bg-electricPurple animate-pulse" />
-                  System Status:
-                </div>
-                <div className="hidden sm:block w-[1px] h-4 bg-white/20"></div>
-                <p className="text-sm text-gray-400 leading-snug font-light">
-                  Pursuing BTech CS. Actively seeking <span className="text-white font-medium">software engineering roles</span> and collaborations.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="md:col-span-2 space-y-6">
-            <div className="glass p-6 rounded-xl border border-white/5 shadow-xl relative overflow-hidden group hover:border-white/10 transition-colors">
-              <div className="absolute top-0 left-0 w-full h-1 bg-neonBlue scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-              <h3 className="text-xs uppercase tracking-widest text-gray-500 mb-4 font-mono">Education</h3>
-              
-              <div className="space-y-6">
-                <div>
-                  <p className="text-lg font-bold text-white mb-1">BTech Computer Science</p>
-                  <p className="text-gray-400 text-sm mb-3">Lovely Professional University</p>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-neonBlue/10 border border-neonBlue/20 rounded text-neonBlue text-sm font-mono">
-                    <span className="w-2 h-2 rounded-full bg-neonBlue animate-pulse"></span>
-                    CGPA: 8.39
-                  </div>
-                </div>
-
-                <div className="w-full h-[1px] bg-white/10"></div>
-
-                <div>
-                  <p className="text-lg font-bold text-white mb-1">Class 12th</p>
-                  <p className="text-gray-400 text-sm mb-3">Central Board of Secondary Education (CBSE)</p>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-electricPurple/10 border border-electricPurple/20 rounded text-electricPurple text-sm font-mono">
-                    <span className="w-2 h-2 rounded-full bg-electricPurple animate-pulse"></span>
-                    Percentage: 86%
-                  </div>
-                </div>
-
-                <div className="w-full h-[1px] bg-white/10"></div>
-
-                <div>
-                  <p className="text-lg font-bold text-white mb-1">Class 10th</p>
-                  <p className="text-gray-400 text-sm mb-3">Central Board of Secondary Education (CBSE)</p>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-neonBlue/10 border border-neonBlue/20 rounded text-neonBlue text-sm font-mono">
-                    <span className="w-2 h-2 rounded-full bg-neonBlue animate-pulse"></span>
-                    Percentage: 95%
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="glass p-6 rounded-xl border border-white/5 shadow-xl relative overflow-hidden group hover:border-white/10 transition-colors">
-              <div className="absolute top-0 left-0 w-full h-1 bg-electricPurple scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-              <h3 className="text-xs uppercase tracking-widest text-gray-500 mb-4 font-mono">Key Highlights</h3>
-              <ul className="text-gray-400 text-sm space-y-3">
-                <li className="flex items-start gap-3">
-                  <span className="text-neonBlue text-lg font-bold">2<span className="text-xs uppercase align-top">nd</span></span>
-                  <span className="leading-snug pt-1">Position — Group Discussion Competition</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-electricPurple text-lg font-bold">3★</span>
-                  <span className="leading-snug pt-1">Silver Badge on HackerRank (Java)</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-[#00f0ff] text-lg font-bold">{'{ }'}</span>
-                  <span className="leading-snug pt-1">Active problem solver on LeetCode</span>
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };
