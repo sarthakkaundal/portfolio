@@ -88,7 +88,7 @@ const ProjectsSection = () => {
         ],
         githubLink: 'https://github.com/sarthakkaundal/LockerSystem',
         demoLink: 'https://vaultaox.vercel.app/',
-        imagePlaceholder: 'https://via.placeholder.com/600x400'
+        imagePlaceholder: '/projects/vaulta.png'
       },
       {
         _id: '5',
@@ -105,7 +105,7 @@ const ProjectsSection = () => {
         ],
         githubLink: 'https://github.com/sarthakkaundal/dockit',
         demoLink: 'https://docit-app.vercel.app/',
-        imagePlaceholder: 'https://via.placeholder.com/600x400'
+        imagePlaceholder: '/projects/docit.png'
       }
     ];
 
