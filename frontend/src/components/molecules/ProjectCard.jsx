@@ -88,7 +88,7 @@ const ProjectCard = ({ project, isActive }) => {
               tabIndex={isActive ? 0 : -1}
             >
               <ExternalLink size={16} />
-              Demo
+              Live Link
             </a>
           )}
         </div>
