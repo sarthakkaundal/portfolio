@@ -72,6 +72,40 @@ const ProjectsSection = () => {
         ],
         githubLink: 'https://github.com/arpitkumar08/Udyog-Saarthi',
         imagePlaceholder: '/projects/udyogsarthi.png',
+      },
+      {
+        _id: '4',
+        title: 'Vaulta – Smart Campus Locker System',
+        description: 'A smart campus locker management system designed to provide secure, convenient storage for students.',
+        purpose: 'To solve campus storage and locker-management problems through a modern web interface.',
+        techStack: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS'],
+        features: [
+          'Secure locker allocation',
+          'user management',
+          'locker status tracking',
+          'responsive dashboard',
+          'modern UI with animations'
+        ],
+        githubLink: 'https://github.com/sarthakkaundal/LockerSystem',
+        demoLink: 'https://vaultaox.vercel.app/',
+        imagePlaceholder: 'https://via.placeholder.com/600x400'
+      },
+      {
+        _id: '5',
+        title: 'DOCIT – Automated Document Management System',
+        description: 'An intelligent document management system designed to organize, process, and retrieve documents efficiently.',
+        purpose: 'To simplify document handling by combining automated document processing with an AI-powered intelligence layer.',
+        techStack: ['React', 'Node.js', 'Express.js', 'Firebase', 'AI/LLM'],
+        features: [
+          'Document upload and management',
+          'automated document processing',
+          'AI-powered document interaction',
+          'organized document retrieval',
+          'responsive design'
+        ],
+        githubLink: 'https://github.com/sarthakkaundal/dockit',
+        demoLink: 'https://docit-app.vercel.app/',
+        imagePlaceholder: 'https://via.placeholder.com/600x400'
       }
     ];
 
