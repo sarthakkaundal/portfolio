@@ -20,21 +20,21 @@ const OpenSourceSection = () => {
       },
       {
         id: 2,
-        name: "Linkro",
-        taxonomy: "Recruitment",
-        description: "Full-stack recruitment platform featuring role-based dashboards.",
+        name: "Vaulta",
+        taxonomy: "Locker System",
+        description: "A smart campus locker management system designed to provide secure, convenient storage for students.",
         language: "JavaScript",
-        tech: ["MERN", "Tailwind", "JWT"],
-        html_url: "https://github.com/sarthakkaundal/linkro"
+        tech: ["React", "Node.js", "MongoDB"],
+        html_url: "https://github.com/sarthakkaundal/LockerSystem"
       },
       {
         id: 3,
-        name: "Udyog-Saarthi",
-        taxonomy: "Career Portal",
-        description: "Inclusive job portal designed to facilitate employment under specific reservation policies.",
-        language: "PHP",
-        tech: ["HTML", "JS", "PHP"],
-        html_url: "https://github.com/arpitkumar08/Udyog-Saarthi"
+        name: "DOCIT",
+        taxonomy: "Document System",
+        description: "An intelligent document management system designed to organize, process, and retrieve documents efficiently.",
+        language: "JavaScript",
+        tech: ["React", "Firebase", "AI/LLM"],
+        html_url: "https://github.com/sarthakkaundal/dockit"
       }
     ];
     setRepos(curatedRepos);
