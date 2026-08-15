@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { GitHubCalendar } from 'react-github-calendar';
-import { Star, GitFork, Code2 } from 'lucide-react';
+import { Star, GitFork, Code2, ExternalLink } from 'lucide-react';
 
 const OpenSourceSection = () => {
   const [repos, setRepos] = useState([]);
@@ -16,7 +16,8 @@ const OpenSourceSection = () => {
         description: "AI-powered disaster response tool for predicting floods using terrain data.",
         language: "JavaScript",
         tech: ["React", "Firebase", "Gemini"],
-        html_url: "https://github.com/sarthakkaundal/PRAYAS"
+        html_url: "https://github.com/sarthakkaundal/PRAYAS",
+        live_url: "https://prayas-flood-prediction.vercel.app/"
       },
       {
         id: 2,
@@ -25,7 +26,8 @@ const OpenSourceSection = () => {
         description: "A smart campus locker management system designed to provide secure, convenient storage for students.",
         language: "JavaScript",
         tech: ["React", "Node.js", "MongoDB"],
-        html_url: "https://github.com/sarthakkaundal/LockerSystem"
+        html_url: "https://github.com/sarthakkaundal/LockerSystem",
+        live_url: "https://vaultaox.vercel.app/"
       },
       {
         id: 3,
@@ -34,7 +36,8 @@ const OpenSourceSection = () => {
         description: "An intelligent document management system designed to organize, process, and retrieve documents efficiently.",
         language: "JavaScript",
         tech: ["React", "Firebase", "AI/LLM"],
-        html_url: "https://github.com/sarthakkaundal/dockit"
+        html_url: "https://github.com/sarthakkaundal/dockit",
+        live_url: "https://docit-app.vercel.app/"
       }
     ];
     setRepos(curatedRepos);
@@ -102,11 +105,8 @@ const OpenSourceSection = () => {
             </h3>
             <div className="grid grid-cols-1 gap-4">
               {repos.map((repo, idx) => (
-                <a 
+                <div 
                   key={repo.id} 
-                  href={repo.html_url} 
-                  target="_blank" 
-                  rel="noreferrer"
                   className={`retro-card p-5 group flex flex-col justify-between ${idx % 2 === 0 ? 'bg-primary-cream' : 'bg-white'}`}
                 >
                   <div>
@@ -115,7 +115,16 @@ const OpenSourceSection = () => {
                         <h4 className="text-text-dark font-black text-xl leading-tight mb-2 underline decoration-transparent group-hover:decoration-text-dark transition-colors">{repo.name}</h4>
                         <span className="inline-block px-2 py-0.5 text-xs font-bold uppercase tracking-wider bg-accent-purple text-white border-2 border-text-dark shadow-[1px_1px_0_var(--text-dark)]">{repo.taxonomy}</span>
                       </div>
-                      <span className="retro-icon bg-white text-text-dark group-hover:bg-accent-teal group-hover:text-white transition-colors"><GitFork size={16} strokeWidth={3} /></span>
+                      <div className="flex gap-2">
+                        {repo.live_url && (
+                          <a href={repo.live_url} target="_blank" rel="noreferrer" className="retro-icon bg-white text-text-dark hover:bg-accent-teal hover:text-white transition-colors" title="Live Demo">
+                            <ExternalLink size={16} strokeWidth={3} />
+                          </a>
+                        )}
+                        <a href={repo.html_url} target="_blank" rel="noreferrer" className="retro-icon bg-white text-text-dark hover:bg-accent-teal hover:text-white transition-colors" title="GitHub Repository">
+                          <GitFork size={16} strokeWidth={3} />
+                        </a>
+                      </div>
                     </div>
                     <p className="text-text-medium text-sm mb-4 leading-relaxed font-medium">{repo.description}</p>
                   </div>
@@ -124,7 +133,7 @@ const OpenSourceSection = () => {
                       <span key={i} className="text-xs font-bold font-display px-2 py-0.5 border-2 border-text-dark text-text-dark bg-white shadow-[1px_1px_0_var(--text-dark)]">{t}</span>
                     ))}
                   </div>
-                </a>
+                </div>
               ))}
             </div>
           </div>
