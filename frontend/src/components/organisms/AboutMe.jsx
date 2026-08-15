@@ -53,7 +53,7 @@ const AboutMe = () => {
                 <p className="text-lg font-bold text-text-dark mb-1">BTech Computer Science</p>
                 <p className="text-text-medium text-sm mb-3 font-medium">Lovely Professional University</p>
                 <div className="retro-tag retro-tag-teal border-gray-900 border-2">
-                  CGPA: 8.39
+                  CGPA: 8.42
                 </div>
               </div>
 

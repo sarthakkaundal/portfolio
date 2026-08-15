@@ -44,7 +44,7 @@ const HeroSection = () => {
 
           {/* Credibility / Proof Strip */}
           <div className="flex flex-wrap gap-3 mb-2">
-            <span className="retro-tag retro-tag-outline border-2 border-text-dark">8.39 CGPA</span>
+            <span className="retro-tag retro-tag-outline border-2 border-text-dark">8.42 CGPA</span>
             <span className="retro-tag retro-tag-teal border-2 border-text-dark">100+ LeetCode Problems Solved</span>
             <span className="retro-tag retro-tag-purple border-2 border-text-dark">Full-Stack Focus</span>
           </div>
