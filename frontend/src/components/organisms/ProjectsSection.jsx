@@ -58,6 +58,7 @@ const ProjectsSection = () => {
           'Evacuation Route Planning with AI-assisted routing',
         ],
         githubLink: 'https://github.com/sarthakkaundal/PRAYAS',
+        demoLink: 'https://prayas-flood-prediction.vercel.app/',
         imagePlaceholder: '/projects/prayas.png',
       },
       {
